@@ -10,7 +10,7 @@ import UIKit
 
 public class ScrollView: UIScrollView {
     
-    private(set) var scrollPage: UIView
+    public var scrollPage: UIView
     private(set) var scrollPageWidthConstaint: NSLayoutConstraint
     
     private let constraintHelper: ConstraintHelperProtocol

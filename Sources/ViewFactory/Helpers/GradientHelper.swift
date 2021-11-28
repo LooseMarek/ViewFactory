@@ -16,7 +16,7 @@ public protocol GradientHelperProtocol {
     func custom(for view: UIView, frame: CGRect?, layerName: String, cornerRadius: CGFloat?, start: CAGradientLayer.Point, end: CAGradientLayer.Point, colors: [CGColor], type: CAGradientLayerType) throws
 }
 
-extension GradientHelperProtocol {
+public extension GradientHelperProtocol {
     func diagonal(for view: UIView, colorTop: UIColor, colorBottom: UIColor, layerName: String = "gradientDiagonal") throws {
         return try diagonal(for: view, colorTop: colorTop, colorBottom: colorBottom, layerName: layerName)
     }
