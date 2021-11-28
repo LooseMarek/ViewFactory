@@ -17,7 +17,13 @@ public class MockScrollView: ScrollView {
     
     public var mockScrollPageFrame: CGRect?
     
-    public init() {}
+    public init(constraintHelper: ConstraintHelperProtocol) {
+        super.init(constraintHelper: constraintHelper)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
     
     public override func removeSubviews() {
         removeSubviewsCallCount += 1

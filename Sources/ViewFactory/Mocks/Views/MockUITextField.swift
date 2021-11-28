@@ -14,7 +14,13 @@ public class MockUITextField: UITextField {
     
     public var mockResignFirstResponder: Bool = false
     
-    public init() {}
+    public init() {
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
     
     public override func resignFirstResponder() -> Bool {
         resignFirstResponderCallCount += 1
