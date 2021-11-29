@@ -57,4 +57,7 @@ public extension UIColor {
     public static var onButtonFab: UIColor {
         return UIColor(named: "OnButtonFab", in: .module, compatibleWith: nil)! // TODO: Set to #FFFFFF
     }
+    public static var card: UIColor {
+        return UIColor(named: "Card", in: .module, compatibleWith: nil)! // TODO: Set to #2A3464
+    }
 }

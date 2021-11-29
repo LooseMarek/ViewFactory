@@ -15,6 +15,7 @@ public protocol ViewFactoryProtocol {
     var stack: StackFactoryProtocol { get }
     var scroll: ScrollFactoryProtocol { get }
     var table: TableFactoryProtocol { get }
+    var card: CardFactoryProtocol { get }
 }
 
 public class ViewFactory: ViewFactoryProtocol {
@@ -26,6 +27,7 @@ public class ViewFactory: ViewFactoryProtocol {
     public var stack: StackFactoryProtocol
     public var scroll: ScrollFactoryProtocol
     public var table: TableFactoryProtocol
+    public var card: CardFactoryProtocol
     
     public init(viewFactoryColor: ViewFactoryColorProtocol = DefaultViewFactoryColor()) {
         styleHelper = StyleHelper(viewFactoryColor: viewFactoryColor)
@@ -36,5 +38,6 @@ public class ViewFactory: ViewFactoryProtocol {
         stack = StackFactory(constraintHelper: styleHelper.constraint)
         scroll = ScrollFactory(constraintHelper: styleHelper.constraint)
         table = TableFactory(constraintHelper: styleHelper.constraint)
+        card = CardFactory(constraintHelper: styleHelper.constraint, labelFactory: label, inputFactory: input, buttonFactory: button, stackFactory: stack, viewFactoryColor: viewFactoryColor)
     }
 }

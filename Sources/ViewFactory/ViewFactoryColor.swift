@@ -29,6 +29,8 @@ public protocol ViewFactoryColorProtocol {
     var buttonFabGradientFirst: UIColor { get }
     var buttonFabGradientLast: UIColor { get }
     var onButtonFab: UIColor { get }
+    
+    var card: UIColor { get }
 }
 
 public class DefaultViewFactoryColor: ViewFactoryColorProtocol {
@@ -86,5 +88,9 @@ public class DefaultViewFactoryColor: ViewFactoryColorProtocol {
     }
     public var onButtonFab: UIColor {
         return .onButtonFab
+    }
+    
+    public var card: UIColor {
+        return .card
     }
 }
