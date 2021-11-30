@@ -14,10 +14,10 @@ public protocol BaseCellMainViewProtocol {
     func setStyle()
 }
 
-public class BaseCell: UITableViewCell {
-    class var identifier: String { return String(describing: self) }
+open class BaseCell: UITableViewCell {
+    public class var identifier: String { return String(describing: self) }
     
-    private(set) var mainView: BaseCellMainView?
+    public var mainView: BaseCellMainView?
     
     // MARK: - Init
     
@@ -25,11 +25,11 @@ public class BaseCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         return nil
     }
     
-    func initCell(with mainView: BaseCellMainView, constraintHelper: ConstraintHelperProtocol) {
+    public func initCell(with mainView: BaseCellMainView, constraintHelper: ConstraintHelperProtocol) {
         resetSubviews()
         self.mainView = mainView
         setSubviews()
