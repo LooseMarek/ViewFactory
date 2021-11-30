@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension CAGradientLayer {
-    public enum Point {
+    enum Point {
         case topLeft
         case centerLeft
         case bottomLeft
@@ -45,7 +45,7 @@ public extension CAGradientLayer {
         }
     }
     
-    public convenience init(start: Point, end: Point, colors: [CGColor], type: CAGradientLayerType) {
+    convenience init(start: Point, end: Point, colors: [CGColor], type: CAGradientLayerType) {
         self.init()
         self.startPoint = start.point
         self.endPoint = end.point

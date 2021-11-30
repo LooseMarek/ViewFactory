@@ -94,7 +94,6 @@ extension Helper_Gradient_Test {
         layer.name = layerName
         view.layer.insertSublayer(layer, at: 0)
         
-        let gradientLayerName: String = "TestGradientLayer"
         let colorTop: UIColor = .red
         let colorBottom: UIColor = .blue
         

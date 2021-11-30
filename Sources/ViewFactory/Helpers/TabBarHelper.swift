@@ -27,6 +27,7 @@ public class TabBarHelper: TabBarHelperProtocol {
         tabBar.tintColor = viewFactoryColor.onTabBarActive
         tabBar.unselectedItemTintColor = viewFactoryColor.onTabBar
         tabBar.barTintColor = viewFactoryColor.tabBar
+        tabBar.backgroundColor = viewFactoryColor.tabBar
         tabBar.isTranslucent = false
     }
 }
