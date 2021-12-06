@@ -31,6 +31,8 @@ public protocol ViewFactoryColorProtocol {
     var onButtonFab: UIColor { get }
     
     var card: UIColor { get }
+    
+    var tableRefresh: UIColor { get }
 }
 
 public class DefaultViewFactoryColor: ViewFactoryColorProtocol {
@@ -92,5 +94,9 @@ public class DefaultViewFactoryColor: ViewFactoryColorProtocol {
     
     public var card: UIColor {
         return .card
+    }
+    
+    public var tableRefresh: UIColor {
+        return .tableRefresh
     }
 }

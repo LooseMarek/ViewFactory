@@ -11,6 +11,7 @@ import UIKit
 public protocol TableFactoryProtocol {
     var constraintHelper: ConstraintHelperProtocol { get }
     func main(frame: CGRect) -> UITableView
+    func refresh() -> UIRefreshControl
 }
 
 public extension TableFactoryProtocol {
@@ -34,5 +35,12 @@ public class TableFactory: TableFactoryProtocol {
         table.separatorStyle = .none
 
         return table
+    }
+    
+    public func refresh() -> UIRefreshControl {
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .tableRefresh
+        
+        return refresh
     }
 }

@@ -11,7 +11,8 @@ import UIKit
 public protocol StackFactoryProtocol {
     var constraintHelper: ConstraintHelperProtocol { get }
     
-    func main(views: [UIView]) -> UIStackView
+    func mainVertical(views: [UIView]) -> UIStackView
+    func mainHorizontal(views: [UIView]) -> UIStackView
     func card(views: [UIView]) -> UIStackView
     func cardCenter(views: [UIView]) -> UIStackView
     func cardTwoColumns(leftColumnViews: [UIView], rightColumnViews: [UIView]) -> UIStackView
@@ -26,11 +27,20 @@ public class StackFactory: StackFactoryProtocol {
         self.constraintHelper = constraintHelper
     }
     
-    public func main(views: [UIView]) -> UIStackView {
+    public func mainVertical(views: [UIView]) -> UIStackView {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.sixteen.rawValue
         
         setHorizontalConstraints(for: views, in: stack)
+
+        return stack
+    }
+    
+    public func mainHorizontal(views: [UIView]) -> UIStackView {
+        let stack = common(views: views)
+        stack.spacing = PaddingEnum.sixteen.rawValue
+        stack.axis = .horizontal
+        setVerticalConstraints(for: views, in: stack)
 
         return stack
     }
