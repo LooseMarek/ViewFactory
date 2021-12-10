@@ -4,14 +4,35 @@
 
 ![build and test workflow](https://github.com/LooseMarek/ViewFactory/actions/workflows/build_and_test.yml/badge.svg) ![issues](https://img.shields.io/github/issues/LooseMarek/ViewFactory)
 
-Swift package module used for creating basic views with [Factory Pattern](https://www.raywenderlich.com/books/design-patterns-by-tutorials/v3.0/chapters/11-factory-pattern). 
+Swift package module used for creating basic views with [Factory Pattern](https://www.raywenderlich.com/books/design-patterns-by-tutorials/v3.0/chapters/11-factory-pattern).
+
+`ViewFactory` includes:
+
+- 7 different types of factories
+- 4 helper classes (used for styling views)
+- 2 custom views
 
 ## Content
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Show alert rules](#show-alert-rules)
-- [Additional settings](#additional-settings)
+- [Factories](#factories)
+	- [LabelFactory](#labelfactory)
+	- [InputFactory](#inputfactory)
+	- [ButtonFactory](#buttonfactory)
+	- [StackFactory](#stackfactory)
+	- [ScrollFactory](#scrollfactory)
+	- [TableFactory](#tablefactory)
+	- [CardFactory](#cardfactory)
+- [Factory extensions](#factory-extensions)
+- [Helpers](#helpers)
+	- [ConstraintHelper](#constrainthelper)
+	- [GradientHelper](#gradienthelper)
+	- [NavigationBarHelper](#navigationbarhelper)
+	- [TabBarHelper](#tabbarhelper)
+- [Views](#views)
+	- [BaseCell](#basecell)
+	- [ScrollView](#scrollview)
 - [Testing](#testing)
 - [Author](#author)
 
@@ -49,40 +70,75 @@ let viewFactory: ViewFactory Protocol = ViewFactory()
 let viewFactory: ViewFactory Protocol = ViewFactory()
 ```
 
-### Example use
+## Factories
+
+### LabelFactory
 
 `TODO`
 
-### Extending ViewFactory
+### InputFactory
 
 `TODO`
 
-### Extending child factories
+### ButtonFactory
 
 `TODO`
 
-### Mocks
+### StackFactory
 
-ViewFactory module provides set of simple mocks to help you test your app. 
+`TODO`
 
-The mock classes are located in `Mocks` directory and include:
+### ScrollFactory
 
-Mock Factories:
+`TODO`
 
-- `MockInputFactory: InputFactoryProtocol`
-- `MockScrollFactory: ScrollFactoryProtocol`
+### TableFactory
 
-Mock Helpers:
+`TODO`
 
-- `MockConstraintHelper: ConstraintHelperProtocol`
-- `MockGradientHelper: GradientHelperProtocol`
-- `MockNavigationBarHelper: NavigationBarHelperProtocol`
-- `MockTabBarHelper: TabBarHelperProtocol`
+### CardFactory
 
-Mock Views:
+`TODO`
 
-- `MockScrollView: ScrollView`
-- `MockUITextField: UITextField`
+
+## Factory Extensions
+
+### ViewFactory
+
+`TODO`
+
+### Child factories
+
+`TODO`
+
+## Helpers
+
+### ConstraintHelper
+
+`TODO`
+
+### GradientHelper
+
+`TODO`
+
+### NavigationBarHelper
+
+`TODO`
+
+### TabBarHelper
+
+`TODO`
+
+
+## Views
+
+### BaseCell
+
+`TODO`
+
+### ScrollView
+
+`TODO`
 
 ## Testing
 
@@ -106,6 +162,29 @@ xcodebuild -scheme 'ViewFactory' -sdk iphonesimulator -destination 'platform=iOS
 ```
 
 Note: The commands above are running with iPhone 11 but you can use any iOS devices you like.
+
+### Mocks
+
+ViewFactory module provides set of simple mocks to help you test your app. 
+
+The mock classes are located in `Mocks` directory and include:
+
+Mock Factories:
+
+- `MockInputFactory: InputFactoryProtocol`
+- `MockScrollFactory: ScrollFactoryProtocol`
+
+Mock Helpers:
+
+- `MockConstraintHelper: ConstraintHelperProtocol`
+- `MockGradientHelper: GradientHelperProtocol`
+- `MockNavigationBarHelper: NavigationBarHelperProtocol`
+- `MockTabBarHelper: TabBarHelperProtocol`
+
+Mock Views:
+
+- `MockScrollView: ScrollView`
+- `MockUITextField: UITextField`
 
 ## Author
 
