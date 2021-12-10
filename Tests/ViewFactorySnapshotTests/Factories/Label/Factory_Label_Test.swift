@@ -6,11 +6,14 @@
 //
 
 import XCTest
+import SnapshotTesting
 
 @testable import ViewFactory
 
 class Factory_Label_Test: XCTestCase {
     
+    // TODO: Fix size for child factories but use device sizes for Stack, Scroll and Table Factory
+    var testFrameIphone8: CGRect!
     var testShortText: String!
     var testLongText: String!
     
@@ -19,6 +22,7 @@ class Factory_Label_Test: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        testFrameIphone8 = CGRect(x: 0, y: 0, width: ViewImageConfig.iPhone8.size!.width, height: 50.0)
         testShortText = "Example short text"
         testLongText = "This is the example long text which may or may not go into multiple lines"
         
@@ -26,9 +30,11 @@ class Factory_Label_Test: XCTestCase {
     }
 
     override func tearDown() {
-        labelFactory = nil
+        testFrameIphone8 = nil
         testShortText = nil
         testLongText = nil
+        
+        labelFactory = nil
                 
         super.tearDown()
     }
