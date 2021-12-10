@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  SCHEME: 'ViewFactory'
+  TEST_DEVICE: 'platform=iOS Simulator,name=iPhone 11,OS=15.0'
+
 jobs:
   build:
     runs-on: macos-latest
@@ -15,7 +19,7 @@ jobs:
 
     - name: Build
       shell: bash
-      run: xcodebuild -scheme 'ViewFactory' -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' build
+      run: xcodebuild -scheme ${{ env.SCHEME }} -sdk iphonesimulator -destination ${{ env.TEST_DEVICE }} build
 
   test:
     runs-on: macos-latest
@@ -27,4 +31,4 @@ jobs:
 
     - name: Test
       shell: bash
-      run: xcodebuild -scheme 'ViewFactory' -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' test
+      run: xcodebuild -scheme ${{ env.SCHEME }} -sdk iphonesimulator -destination ${{ env.TEST_DEVICE }} test
