@@ -78,7 +78,7 @@ class Extension_CAGradientLayer_Test: XCTestCase {
         XCTAssertEqual(resultCenterRight.x, expectedCenterRightPoint.x)
         XCTAssertEqual(resultCenterRight.y, expectedCenterRightPoint.y)
         
-        XCTAssertNotEqual(resultBottomRight.x, expectedBottomRightPoint.x)
+        XCTAssertEqual(resultBottomRight.x, expectedBottomRightPoint.x)
         XCTAssertEqual(resultBottomRight.y, expectedBottomRightPoint.y)
     }
 }
