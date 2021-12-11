@@ -1,5 +1,5 @@
 //
-//  TestInputLabel.swift
+//  TestBodyLabel.swift
 //
 //
 //  Created by Marek Loose on 10/12/2021.
@@ -12,11 +12,11 @@ import SnapshotTesting
 
 extension Factory_Label_Test {
     
-    func testInputLabel_WhenShortText_ShouldUseDefaultFontSize() {
+    func testBody_WhenShortText_ShouldUseDefaultFontSize() {
         // Given
         
         // When
-        let label = labelFactory.inputLabel()
+        let label = labelFactory.body()
         label.frame = testFrameIphone8
         label.text = testShortText
         label.backgroundColor = .card
@@ -25,25 +25,25 @@ extension Factory_Label_Test {
         assertSnapshot(matching: label, as: .image)
     }
     
-    func testInputLabel_WhenLongText_ShouldAdjustFontSize() {
+    func testBody_WhenLongText_ShouldGoIntoMultipleLines() {
         // Given
         
         // When
-        let label = labelFactory.inputLabel()
+        let label = labelFactory.body()
         label.frame = testFrameIphone8
-        label.text = testLongTextForSmallFont
+        label.text = testMultilineText
         label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)
     }
     
-    func testInputLabel_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
+    func testBody_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
         // Given
         labelFactory = LabelFactory(viewFactoryColor: MockViewFactoryColor())
         
         // When
-        let label = labelFactory.inputLabel()
+        let label = labelFactory.body()
         label.frame = testFrameIphone8
         label.text = testShortText
         label.backgroundColor = .card
@@ -52,11 +52,11 @@ extension Factory_Label_Test {
         assertSnapshot(matching: label, as: .image)
     }
     
-    func testInputLabel_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight() {
+    func testBody_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight() {
         // Given
         
         // When
-        let label = labelFactory.inputLabel(alignment: .right)
+        let label = labelFactory.body(alignment: .right)
         label.frame = testFrameIphone8
         label.text = testShortText
         label.backgroundColor = .card
@@ -65,11 +65,11 @@ extension Factory_Label_Test {
         assertSnapshot(matching: label, as: .image)
     }
     
-    func testInputLabel_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally() {
+    func testBody_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally() {
         // Given
         
         // When
-        let label = labelFactory.inputLabel(alignment: .center)
+        let label = labelFactory.body(alignment: .center)
         label.frame = testFrameIphone8
         label.text = testShortText
         label.backgroundColor = .card

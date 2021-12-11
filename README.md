@@ -139,6 +139,46 @@ let label = viewFactory.label.header()
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
 
+##### Body
+
+Use for most of the body text.
+
+By default, body label is set to align to left and go into multiple lines.
+
+**Note: For any fix height labels, the text will truncate (as per example below). If you like to expand label base on the text length, make sure to set height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
+
+`let label = viewFactory.label.body()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenLongText_ShouldGoIntoMultipleLines.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .labelBody is set to .blue
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let label = viewFactory.label.body()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.body(alignment: .right)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.body(alignment: .center)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
+</p>
+
 ##### Input
 
 Placed above inputs, body texts or any other views to use as a description.
@@ -176,7 +216,6 @@ let label = viewFactory.label.inputLabel()
 <p>
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
-
 
 
 ### InputFactory

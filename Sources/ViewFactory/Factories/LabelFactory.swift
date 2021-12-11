@@ -12,8 +12,8 @@ public protocol LabelFactoryProtocol {
     var viewFactoryColor: ViewFactoryColorProtocol { get }
 
     func header(alignment: NSTextAlignment) -> UILabel
-    func inputLabel(alignment: NSTextAlignment) -> UILabel
     func body(alignment: NSTextAlignment) -> UILabel
+    func inputLabel(alignment: NSTextAlignment) -> UILabel
     func hint(alignment: NSTextAlignment) -> UILabel
 }
 
@@ -22,12 +22,12 @@ public extension LabelFactoryProtocol {
         return header(alignment: alignment)
     }
     
-    func inputLabel(alignment: NSTextAlignment = .left) -> UILabel {
-        return inputLabel(alignment: alignment)
-    }
-    
     func body(alignment: NSTextAlignment = .left) -> UILabel {
         return body(alignment: alignment)
+    }
+    
+    func inputLabel(alignment: NSTextAlignment = .left) -> UILabel {
+        return inputLabel(alignment: alignment)
     }
     
     func hint(alignment: NSTextAlignment = .left) -> UILabel {
@@ -54,6 +54,16 @@ public class LabelFactory: LabelFactoryProtocol {
         return label
     }
     
+    public func body(alignment: NSTextAlignment = .left) -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textAlignment = alignment
+        label.textColor = viewFactoryColor.labelBody
+        label.numberOfLines = 0
+
+        return label
+    }
+    
     public func inputLabel(alignment: NSTextAlignment = .left) -> UILabel {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
@@ -62,16 +72,6 @@ public class LabelFactory: LabelFactoryProtocol {
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        return label
-    }
-    
-    public func body(alignment: NSTextAlignment = .left) -> UILabel {
-        let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textAlignment = alignment
-        label.textColor = viewFactoryColor.labelBody
-        label.numberOfLines = 0
-
         return label
     }
     
