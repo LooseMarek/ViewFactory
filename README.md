@@ -259,7 +259,37 @@ let label = viewFactory.label.hint()
 
 ### InputFactory
 
-`TODO`
+**Important: All inputs are being created with dark navy blue background color.**
+
+By default, all inputs are set to be 48.0 height (unless the frame of the UITextField will be changed), return key is set to "done" and the borders are rounded.
+
+##### Number
+
+By default, number input is changing keyboard type to number pad and add toolbar.
+
+`let input = viewFactory.input.number()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestNumber/testNumber_WhenEmpty_ShouldDisplayPlaceholder.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestNumber/testNumber_WhenHaveInput_ShouldDisplayInput.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .input [background] is set to .green, .onInput is set to .black and .inputPlaceholder is set to .gray
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let input = viewFactory.input.number()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestNumber/testNumber_WhenEmptyAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestNumber/testNumber_WhenHaveInputAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
 
 ### ButtonFactory
 
@@ -326,7 +356,7 @@ let label = viewFactory.label.hint()
 Module is run with GitHub Actions everytime the new commit is pushed to the remote branch `master`. The testing includes:
 
 - building the project
-- running unit tests
+- running unit and snapshot tests
 
 You can also do that locally by running below commands in terminal:
 
