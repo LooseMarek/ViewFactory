@@ -24,7 +24,7 @@ class Factory_Input_Test: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testFrameIphone8 = CGRect(x: 0, y: 0, width: ViewImageConfig.iPhone8.size!.width, height: 50.0)
+        testFrameIphone8 = CGRect(x: 0, y: 0, width: ViewImageConfig.iPhone8.size!.width, height: 48.0)
         testPlaceholderText = "Example placeholder"
         testNumberInputText = "1321.22"
         testTextInputText = "Example text input"
