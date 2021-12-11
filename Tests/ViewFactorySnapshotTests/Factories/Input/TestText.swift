@@ -37,7 +37,7 @@ extension Factory_Input_Test {
         assertSnapshot(matching: input, as: .image)
     }
     
-    func testText_WhenEmptyAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
+    func testText_WhenEmptyAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultColor() {
         // Given
         inputFactory = InputFactory(constraintHelper: constraintHelper, viewFactoryColor: MockViewFactoryColor())
         
@@ -50,7 +50,7 @@ extension Factory_Input_Test {
         assertSnapshot(matching: input, as: .image)
     }
     
-    func testText_WhenHaveInputAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
+    func testText_WhenHaveInputAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultColor() {
         // Given
         inputFactory = InputFactory(constraintHelper: constraintHelper, viewFactoryColor: MockViewFactoryColor())
         

@@ -321,6 +321,26 @@ let input = viewFactory.input.text()
 
 ### ButtonFactory
 
+##### Negative
+
+By default, negative button is set to be 40.0 height, and wrap text horizontally (so make sure to set either horizontal constraints or `heightAnchor` constraint). The button is also set to have borders (which are rounded and are the same color as text) and have dark navy blue background color.
+
+`let button = viewFactory.button.negative()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestNegative/testNegative_WhenDefault_ShouldHaveFixedHeight.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .buttonNegative [background] is set to .red and .onButtonNegative is set to .white
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let button = viewFactory.button.negative()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestNegative/testNegative_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
 `TODO`
 
 ### StackFactory
