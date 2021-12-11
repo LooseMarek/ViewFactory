@@ -24,7 +24,7 @@ Swift package module used for creating basic views with [Factory Pattern](https:
 	- [ScrollFactory](#scrollfactory)
 	- [TableFactory](#tablefactory)
 	- [CardFactory](#cardfactory)
-- [Factory extensions](#factory-extensions)
+- [Extending factories](#extending-factories)
 - [Helpers](#helpers)
 	- [ConstraintHelper](#constrainthelper)
 	- [GradientHelper](#gradienthelper)
@@ -75,7 +75,7 @@ let viewFactory: ViewFactoryProtocol = ViewFactory()
 
 Most likely you would like to use your own color palette. 
 
-As usual, you can change colors of the views by changing it's color properties after initializing it, but it's recommended to define global color palette use across entire project.
+As usual, you can change colors of the views by changing it's color properties after initializing it, but it's recommended to define global color palette used across entire project.
 
 You can do this by creating custom ViewFactoryColor palette by implementing `ViewFactoryColorProtocol`:
 
@@ -95,7 +95,7 @@ let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactory
 let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
 ```
 
-In this way, if you wish to e.g. change color of the header label, you can easly do it from `YourCustomViewFactoryColor` by changing `labelHeader` color. 
+In this way, if you wish to e.g. change color of all header labels, you can easly do it from `YourCustomViewFactoryColor` by changing `labelHeader` color. 
 
 ## Factories
 
@@ -139,6 +139,46 @@ let label = viewFactory.label.header()
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
 
+##### Input
+
+Placed above inputs, body texts or any other views to use as a description.
+
+By default, input label is set to align to left and ajdust the font size to fit width and keep it on one line.
+
+`let label = viewFactory.label.inputLabel()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenLongText_ShouldAdjustFontSize.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .labelInput is set to .brown
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let label = viewFactory.label.inputLabel()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.inputLabel(alignment: .right)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.inputLabel(alignment: .center)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
+</p>
+
+
+
 ### InputFactory
 
 `TODO`
@@ -164,7 +204,7 @@ let label = viewFactory.label.header()
 `TODO`
 
 
-## Factory Extensions
+## Extending factories
 
 ### ViewFactory
 
