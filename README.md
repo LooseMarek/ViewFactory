@@ -291,6 +291,34 @@ let input = viewFactory.input.number()
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestNumber/testNumber_WhenHaveInputAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
 </p>
 
+##### Text
+
+By default, text input is using default keyboard.
+
+`let input = viewFactory.input.text()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestText/testText_WhenEmpty_ShouldDisplayPlaceholder.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestText/testText_WhenHaveInput_ShouldDisplayInput.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .input [background] is set to .green, .onInput is set to .black and .inputPlaceholder is set to .gray
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let input = viewFactory.input.text()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestText/testText_WhenEmptyAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Input/__Snapshots__/TestText/testText_WhenHaveInputAndColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
 ### ButtonFactory
 
 `TODO`
