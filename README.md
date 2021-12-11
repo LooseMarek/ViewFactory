@@ -101,12 +101,42 @@ In this way, if you wish to e.g. change color of the header label, you can easly
 
 ### LabelFactory
 
+**Important: All labels are being created with transparent background color. Examples below are using `.card` color as background to distinguish labels from document background (which may be white).**
+
 ##### Header
 
-`let label = labelFactory.header()`
+By default, header label is set to align to left and ajdust the font size to fit width and keep it on one line.
 
-<p align="left">
-    <img style="background-color: powderblue;" src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+`let label = viewFactory.label.header()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenLongText_ShouldAdjustFontSize.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .labelHeader is set to .black
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let label = viewFactory.label.header()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.header(alignment: .right)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.header(alignment: .center)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
 
 ### InputFactory

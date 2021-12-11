@@ -19,6 +19,7 @@ extension Factory_Label_Test {
         let label = labelFactory.header()
         label.frame = testFrameIphone8
         label.text = testShortText
+        label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)
@@ -31,6 +32,7 @@ extension Factory_Label_Test {
         let label = labelFactory.header()
         label.frame = testFrameIphone8
         label.text = testLongText
+        label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)
@@ -44,6 +46,7 @@ extension Factory_Label_Test {
         let label = labelFactory.header()
         label.frame = testFrameIphone8
         label.text = testShortText
+        label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)
@@ -56,6 +59,7 @@ extension Factory_Label_Test {
         let label = labelFactory.header(alignment: .right)
         label.frame = testFrameIphone8
         label.text = testShortText
+        label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)
@@ -68,6 +72,7 @@ extension Factory_Label_Test {
         let label = labelFactory.header(alignment: .center)
         label.frame = testFrameIphone8
         label.text = testShortText
+        label.backgroundColor = .card
         
         // Then
         assertSnapshot(matching: label, as: .image)

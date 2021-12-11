@@ -24,7 +24,7 @@ class Factory_Label_Test: XCTestCase {
         
         testFrameIphone8 = CGRect(x: 0, y: 0, width: ViewImageConfig.iPhone8.size!.width, height: 50.0)
         testShortText = "Example short text"
-        testLongText = "This is the example long text which may or may not go into multiple lines"
+        testLongText = "This is the example long text which should adjust font size"
         
         labelFactory = LabelFactory(viewFactoryColor: DefaultViewFactoryColor())
     }

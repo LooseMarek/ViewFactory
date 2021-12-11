@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ViewFactory
 
 class MockViewFactoryColor: ViewFactoryColorProtocol {
     var onNavigationBar: UIColor {
