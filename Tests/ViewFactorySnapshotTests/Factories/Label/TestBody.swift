@@ -1,5 +1,5 @@
 //
-//  TestBodyLabel.swift
+//  TestBody.swift
 //
 //
 //  Created by Marek Loose on 10/12/2021.

@@ -150,11 +150,11 @@ By default, body label is set to align to left and go into multiple lines.
 `let label = viewFactory.label.body()`
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBody/testBody_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
 </p>
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenLongText_ShouldGoIntoMultipleLines.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBody/testBody_WhenLongText_ShouldGoIntoMultipleLines.1.png" width="375">
 </p>
 
 ```
@@ -164,19 +164,19 @@ let label = viewFactory.label.body()
 ```
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBody/testBody_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
 </p>
 
 `let label = viewFactory.label.body(alignment: .right)`
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBody/testBody_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
 </p>
 
 `let label = viewFactory.label.body(alignment: .center)`
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBodyLabel/testBody_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestBody/testBody_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
 
 ##### Input
@@ -217,6 +217,45 @@ let label = viewFactory.label.inputLabel()
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestInputLabel/testInputLabel_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
 </p>
 
+##### Hint
+
+Use for most of the caption text (small print).
+
+Similar to `inputLabel` but by default, hint label is set to align to left and go into multiple lines.
+
+**Note: For any fix height labels, the text will truncate. If you like to expand label base on the text length, make sure to set height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
+
+`let label = viewFactory.label.hint()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHint/testHint_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHint/testHint_WhenLongText_ShouldGoIntoMultipleLines.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .labelHint is set to .orange
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let label = viewFactory.label.hint()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHint/testHint_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.hint(alignment: .right)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHint/testHint_WhenAlignmentSetToRight_ShouldPlaceLabelOnRight.1.png" width="375">
+</p>
+
+`let label = viewFactory.label.hint(alignment: .center)`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHint/testHint_WhenAlignmentSetToCenter_ShouldPlaceLabelCenterHorizontally.1.png" width="375">
+</p>
 
 ### InputFactory
 
