@@ -56,25 +56,58 @@ import ViewFactory
 
 ### Initalize ViewFactory
 
-#### With default colors
+#### Default colors
+
+By default `ViewFactory` is initialized with its own color palette set to dark mode (navy blue) which is based on the [WordTracker app](http://marekloose.com/wordtracker/).
+
+<p>
+    <img src="./Docs/Images/word_tracker_flayer.jpg" width="214">
+    <img src="./Docs/Images/default_colors.png" width="200">
+</p>
+
+You can initialize `ViewFactory` as fallow:
 
 ```
-let viewFactory: ViewFactory Protocol = ViewFactory()
+let viewFactory: ViewFactoryProtocol = ViewFactory()
 ```
 
-#### With custom colors
+#### Custom colors
 
-`TODO`
+Most likely you would like to use your own color palette. 
+
+As usual, you can change colors of the views by changing it's color properties after initializing it, but it's recommended to define global color palette use across entire project.
+
+You can do this by creating custom ViewFactoryColor palette by implementing `ViewFactoryColorProtocol`:
 
 ```
-let viewFactory: ViewFactory Protocol = ViewFactory()
+import UIKit
+import ViewFactory
+
+class YourCustomViewFactoryColor: ViewFactoryColorProtocol {
+	// ... Implement all variables
+}
 ```
+
+And then pass it to `ViewFactory` when initializing:
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor()
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+```
+
+In this way, if you wish to e.g. change color of the header label, you can easly do it from `YourCustomViewFactoryColor` by changing `labelHeader` color. 
 
 ## Factories
 
 ### LabelFactory
 
-`TODO`
+##### Header
+
+`let label = labelFactory.header()`
+
+<p align="left">
+    <img style="background-color: powderblue;" src="./Tests/ViewFactorySnapshotTests/Factories/Label/__Snapshots__/TestHeader/testHeader_WhenShortText_ShouldUseDefaultFontSize.1.png" width="375">
+</p>
 
 ### InputFactory
 
