@@ -36,7 +36,8 @@ let package = Package(
             resources: [
                 .process("Factories/Button/__Snapshots__/"),
                 .process("Factories/Input/__Snapshots__/"),
-                .process("Factories/Label/__Snapshots__/")
+                .process("Factories/Label/__Snapshots__/"),
+                .process("Factories/Stack/__Snapshots__/")
             ])
     ]
 )

@@ -399,6 +399,18 @@ By default, main vertical stack is using `.fill` distribution and spacing views 
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainVertical/testMainVertical_WhenChildViewsAreNotEven_ShouldFillEntireSpace.1.png" width="375">
 </p>
 
+##### MainHorizontal
+
+By default, main horizontal stack is using `.fillEqually` distribution and spacing views with `PaddingEnum.sixteen`.
+
+**Important: Even if child views will have uneven width, it will still set them to be equel. Modify `.distribution` if you'd like to change that behaviour.**
+
+`let stack = viewFactory.stack.mainHorizontal(views: [yellowView, greenView, orangeView])`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainHorizontal/testMainHorizontal_WhenChildViewsAreEven_ShouldFillEquallyEntireSpace.1.png" width="375">
+</p>
+
 `TODO`
 
 ### ScrollFactory

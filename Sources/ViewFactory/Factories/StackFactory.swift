@@ -40,6 +40,8 @@ public class StackFactory: StackFactoryProtocol {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.sixteen.rawValue
         stack.axis = .horizontal
+        // TODO: Bump version number to 1.0.5 and apply those changes in other projects
+        stack.distribution = .fillEqually
         setVerticalConstraints(for: views, in: stack)
 
         return stack
