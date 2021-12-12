@@ -32,6 +32,11 @@ let package = Package(
             dependencies: ["ViewFactory"]),
         .testTarget(
             name: "ViewFactorySnapshotTests",
-            dependencies: ["ViewFactory", "SnapshotTesting"])
+            dependencies: ["ViewFactory", "SnapshotTesting"],
+            resources: [
+                .process("Factories/Button/__Snapshots__/"),
+                .process("Factories/Input/__Snapshots__/"),
+                .process("Factories/Label/__Snapshots__/")
+            ])
     ]
 )
