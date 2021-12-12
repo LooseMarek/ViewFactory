@@ -383,6 +383,22 @@ let button = viewFactory.button.miniFab()
 
 ### StackFactory
 
+**Important: None of stack views have borders. The red border in examples below are just for the reference.**
+
+##### MainVertical
+
+By default, main vertical stack is using `.fill` distribution and spacing views with `PaddingEnum.sixteen`.
+
+`let stack = viewFactory.stack.mainVertical(views: [yellowView, greenView, orangeView])`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainVertical/testMainVertical_WhenChildViewsAreEven_ShouldFillEntireSpace.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainVertical/testMainVertical_WhenChildViewsAreNotEven_ShouldFillEntireSpace.1.png" width="375">
+</p>
+
 `TODO`
 
 ### ScrollFactory
