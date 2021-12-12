@@ -14,13 +14,14 @@ extension Factory_Button_Test {
     
     func testNegative_WhenDefault_ShouldHaveFixedHeight() {
         // Given
+        let frame = CGRect(x: 0, y: 0, width: testIphone8Width, height: 40.0)
         
         // When
         let button = buttonFactory.negative()
-        button.frame = testFrameIphone8
+        button.frame = frame
         button.setTitle(testButtonText, for: .normal)
         
-        _ = constraintHelper.setWidth(for: button, at: testWidth)
+        _ = constraintHelper.setWidth(for: button, at: testIphone8Width)
         
         // Then
         assertSnapshot(matching: button, as: .image)
@@ -28,14 +29,15 @@ extension Factory_Button_Test {
     
     func testNegative_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
         // Given
+        let frame = CGRect(x: 0, y: 0, width: testIphone8Width, height: 40.0)
         buttonFactory = ButtonFactory(constraintHelper: constraintHelper, gradientHelper: gradientHelper, viewFactoryColor: MockViewFactoryColor())
         
         // When
         let button = buttonFactory.negative()
-        button.frame = testFrameIphone8
+        button.frame = frame
         button.setTitle(testButtonText, for: .normal)
         
-        _ = constraintHelper.setWidth(for: button, at: testWidth)
+        _ = constraintHelper.setWidth(for: button, at: testIphone8Width)
 
         // Then
         assertSnapshot(matching: button, as: .image)

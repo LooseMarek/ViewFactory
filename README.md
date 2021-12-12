@@ -341,7 +341,45 @@ let button = viewFactory.button.negative()
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestNegative/testNegative_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
 </p>
 
-`TODO`
+##### MainFab
+
+By default, main FAB button is set to be 40.0 height and width, and it's intended to be used with Image only. The button is also set to be rounded and have gradient background color.
+
+`let button = viewFactory.button.mainFab()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestMainFab/testMainFab_WhenDefault_ShouldHaveFixedHeight.1.png" width="40">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .buttonFabGradientFirst is set to .yellow, .buttonFabGradientLast is set to .orange and .onButtonFab is set to .white
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let button = viewFactory.button.mainFab()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestMainFab/testMainFab_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="40">
+</p>
+
+##### MiniFab
+
+By default, mini FAB button is set to be 32.0 height and width, and it's intended to be used with Image only. The button is also set to be rounded and have gradient background color.
+
+`let button = viewFactory.button.miniFab()`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestMiniFab/testMiniFab_WhenDefault_ShouldHaveFixedHeight.1.png" width="32">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .buttonFabGradientFirst is set to .yellow, .buttonFabGradientLast is set to .orange and .onButtonFab is set to .white
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let button = viewFactory.button.miniFab()
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Button/__Snapshots__/TestMiniFab/testMiniFab_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="32">
+</p>
 
 ### StackFactory
 

@@ -12,8 +12,7 @@ import SnapshotTesting
 
 class Factory_Button_Test: XCTestCase {
     
-    var testWidth: CGFloat!
-    var testFrameIphone8: CGRect!
+    var testIphone8Width: CGFloat!
     var testButtonText: String!
     
     var constraintHelper: ConstraintHelperProtocol!
@@ -24,8 +23,7 @@ class Factory_Button_Test: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        testWidth = ViewImageConfig.iPhone8.size!.width
-        testFrameIphone8 = CGRect(x: 0, y: 0, width: testWidth, height: 40.0)
+        testIphone8Width = ViewImageConfig.iPhone8.size!.width
         testButtonText = "Example button"
         
         constraintHelper = ConstraintHelper()
@@ -35,8 +33,7 @@ class Factory_Button_Test: XCTestCase {
     }
 
     override func tearDown() {
-        testWidth = nil
-        testFrameIphone8 = nil
+        testIphone8Width = nil
         testButtonText = nil
 
         constraintHelper = nil
