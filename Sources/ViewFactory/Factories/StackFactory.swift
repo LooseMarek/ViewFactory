@@ -29,7 +29,7 @@ public class StackFactory: StackFactoryProtocol {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.sixteen.rawValue
         
-        setHorizontalConstraints(for: views, in: stack)
+        constraintHelper.setHorizontal(for: views, to: stack, at: 0)
 
         return stack
     }
@@ -39,7 +39,7 @@ public class StackFactory: StackFactoryProtocol {
         stack.spacing = PaddingEnum.sixteen.rawValue
         stack.axis = .horizontal
         stack.distribution = .fillEqually
-        setVerticalConstraints(for: views, in: stack)
+        constraintHelper.setVertical(for: views, to: stack, at: 0)
 
         return stack
     }
@@ -50,14 +50,14 @@ public class StackFactory: StackFactoryProtocol {
         leftColumnStack.alignment = .center
         leftColumnStack.spacing = PaddingEnum.twentyFour.rawValue
         
-        setHorizontalConstraints(for: leftColumnViews, in: leftColumnStack)
+        constraintHelper.setHorizontal(for: leftColumnViews, to: leftColumnStack, at: 0)
         
         let rightColumnStack = common(views: rightColumnViews)
         rightColumnStack.distribution = .equalCentering
         rightColumnStack.alignment = .center
         rightColumnStack.spacing = PaddingEnum.twentyFour.rawValue
         
-        setHorizontalConstraints(for: rightColumnViews, in: rightColumnStack)
+        constraintHelper.setHorizontal(for: rightColumnViews, to: rightColumnStack, at: 0)
         
         let columns = [
             leftColumnStack,
@@ -70,7 +70,7 @@ public class StackFactory: StackFactoryProtocol {
         stack.alignment = .center
         stack.spacing = PaddingEnum.twentyFour.rawValue
         
-        setVerticalConstraints(for: columns, in: stack)
+        constraintHelper.setVertical(for: columns, to: stack, at: 0)
         
         return stack
     }
@@ -80,7 +80,7 @@ public class StackFactory: StackFactoryProtocol {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.four.rawValue
         
-        setHorizontalConstraints(for: views, in: stack)
+        constraintHelper.setHorizontal(for: views, to: stack, at: 0)
         
         return stack
     }
@@ -93,17 +93,5 @@ public class StackFactory: StackFactoryProtocol {
         stack.translatesAutoresizingMaskIntoConstraints = false
 
         return stack
-    }
-    
-    private func setHorizontalConstraints(for views: [UIView], in stack: UIStackView) {
-        for view in views {
-            constraintHelper.setHorizontal(for: view, to: stack, at: 0)
-        }
-    }
-    
-    private func setVerticalConstraints(for views: [UIView], in stack: UIStackView) {
-        for view in views {
-            constraintHelper.setVertical(for: view, to: stack, at: 0)
-        }
     }
 }

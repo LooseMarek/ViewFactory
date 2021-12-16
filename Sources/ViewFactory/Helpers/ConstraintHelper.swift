@@ -24,7 +24,9 @@ public protocol ConstraintHelperProtocol {
     
     // Directional to UIView
     func setVertical(for child: UIView, to parent: UIView, at: CGFloat)
+    func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat)
     func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat)
+    func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat)
     func setAll(for child: UIView, to parent: UIView, at: CGFloat)
     
     // Directional to UILayoutGuide
@@ -119,9 +121,21 @@ public class ConstraintHelper: ConstraintHelperProtocol {
         setBottom(for: child, to: parent, at: at)
     }
     
+    public func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat) {
+        for child in childs {
+            setVertical(for: child, to: parent, at: at)
+        }
+    }
+    
     public func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat) {
         setLeft(for: child, to: parent, at: at)
         setRight(for: child, to: parent, at: at)
+    }
+    
+    public func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat) {
+        for child in childs {
+            setHorizontal(for: child, to: parent, at: at)
+        }
     }
     
     public func setAll(for child: UIView, to parent: UIView, at: CGFloat) {

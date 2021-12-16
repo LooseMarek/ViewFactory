@@ -61,7 +61,15 @@ public class MockConstraintHelper: ConstraintHelperProtocol {
         
     }
     
+    public func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat) {
+        
+    }
+    
     public func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat) {
+        
+    }
+    
+    public func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat) {
         
     }
     
