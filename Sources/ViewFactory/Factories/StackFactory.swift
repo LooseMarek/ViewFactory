@@ -11,11 +11,9 @@ import UIKit
 public protocol StackFactoryProtocol {
     var constraintHelper: ConstraintHelperProtocol { get }
     
-    func mainVertical(views: [UIView]) -> UIStackView
-    func mainHorizontal(views: [UIView]) -> UIStackView
-    func card(views: [UIView]) -> UIStackView
-    func cardCenter(views: [UIView]) -> UIStackView
-    func cardTwoColumns(leftColumnViews: [UIView], rightColumnViews: [UIView]) -> UIStackView
+    func vertical(views: [UIView]) -> UIStackView
+    func horizontal(views: [UIView]) -> UIStackView
+    func twoColumns(leftColumnViews: [UIView], rightColumnViews: [UIView]) -> UIStackView
     func labeledView(label: UILabel, for view: UIView) -> UIStackView
 }
 
@@ -27,7 +25,7 @@ public class StackFactory: StackFactoryProtocol {
         self.constraintHelper = constraintHelper
     }
     
-    public func mainVertical(views: [UIView]) -> UIStackView {
+    public func vertical(views: [UIView]) -> UIStackView {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.sixteen.rawValue
         
@@ -36,7 +34,7 @@ public class StackFactory: StackFactoryProtocol {
         return stack
     }
     
-    public func mainHorizontal(views: [UIView]) -> UIStackView {
+    public func horizontal(views: [UIView]) -> UIStackView {
         let stack = common(views: views)
         stack.spacing = PaddingEnum.sixteen.rawValue
         stack.axis = .horizontal
@@ -47,24 +45,7 @@ public class StackFactory: StackFactoryProtocol {
         return stack
     }
     
-    public func card(views: [UIView]) -> UIStackView {
-        let stack = common(views: views)
-        stack.spacing = PaddingEnum.twentyFour.rawValue
-        
-        setHorizontalConstraints(for: views, in: stack)
-        
-        return stack
-    }
-    
-    public func cardCenter(views: [UIView]) -> UIStackView {
-        let stack = common(views: views)
-        stack.alignment = .center
-        stack.spacing = PaddingEnum.twentyFour.rawValue
-        
-        return stack
-    }
-    
-    public func cardTwoColumns(leftColumnViews: [UIView], rightColumnViews: [UIView]) -> UIStackView {
+    public func twoColumns(leftColumnViews: [UIView], rightColumnViews: [UIView]) -> UIStackView {
         let leftColumnStack = common(views: leftColumnViews)
         leftColumnStack.distribution = .equalCentering
         leftColumnStack.alignment = .center

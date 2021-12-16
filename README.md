@@ -385,30 +385,30 @@ let button = viewFactory.button.miniFab()
 
 **Important: None of stack views have borders. The red border in examples below are just for the reference.**
 
-##### MainVertical
+##### Vertical
 
-By default, main vertical stack is using `.fill` distribution and spacing views with `PaddingEnum.sixteen`.
+By default, vertical stack is using `.fill` distribution and spacing views with `PaddingEnum.sixteen`.
 
-`let stack = viewFactory.stack.mainVertical(views: [yellowView, greenView, orangeView])`
+`let stack = viewFactory.stack.vertical(views: [yellowView, greenView, orangeView])`
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainVertical/testMainVertical_WhenChildViewsAreEven_ShouldFillEntireSpace.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestVertical/testVertical_WhenChildViewsAreEven_ShouldFillEntireSpace.1.png" width="375">
 </p>
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainVertical/testMainVertical_WhenChildViewsAreNotEven_ShouldFillEntireSpace.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestVertical/testVertical_WhenChildViewsAreNotEven_ShouldFillEntireSpace.1.png" width="375">
 </p>
 
-##### MainHorizontal
+##### Horizontal
 
-By default, main horizontal stack is using `.fillEqually` distribution and spacing views with `PaddingEnum.sixteen`.
+By default, horizontal stack is using `.fillEqually` distribution and spacing views with `PaddingEnum.sixteen`.
 
 **Important: Even if child views will have uneven width, it will still set them to be equel. Modify `.distribution` if you'd like to change that behaviour.**
 
-`let stack = viewFactory.stack.mainHorizontal(views: [yellowView, greenView, orangeView])`
+`let stack = viewFactory.stack.horizontal(views: [yellowView, greenView, orangeView])`
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestMainHorizontal/testMainHorizontal_WhenChildViewsAreEven_ShouldFillEquallyEntireSpace.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestHorizontal/testHorizontal_WhenChildViewsAreEven_ShouldFillEquallyEntireSpace.1.png" width="375">
 </p>
 
 `TODO`
