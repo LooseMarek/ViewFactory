@@ -183,6 +183,8 @@ let label = viewFactory.label.body()
 
 Placed above inputs, body texts or any other views to use as a description.
 
+**Note: See StackFactory.labeledView() for intended usage.**
+
 By default, input label is set to align to left and ajdust the font size to fit width and keep it on one line.
 
 `let label = viewFactory.label.inputLabel()`
@@ -427,7 +429,34 @@ By default, two columns stack is using `.equalCentering` distribution, `.center`
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestTwoColumns/testTwoColumns_WhenChildViewsAreNotEven_ShouldExpandHeightToMatchLargestChild.1.png" width="375">
 </p>
 
-`TODO`
+##### LabeledView
+
+By default, labeled view stack is using `.fill` distribution and spacing views with `PaddingEnum.four`.
+
+This stack view is intended to be used for labeling inputs or other (custom) views.
+
+**Important: All labels from LabelFactory as well as stack views from StackFactory are being created with transparent background color. Examples below are using `.card` color as background of the stack view to distinguish labels from document background (which may be white).**
+
+```
+let label = viewFactory.label.inputLabel()
+let input = viewFactory.input.text()
+let stack = viewFactory.stack.labeledView(label: label, for view: input)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestLabeledView/testLabeledView_WhenUsedWithInput_ShouldLabelInput.1.png" width="375">
+</p>
+
+```
+let label = viewFactory.label.inputLabel()
+let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestLabeledView/testLabeledView_WhenUsedWithView_ShouldLabelView.1.png" width="375">
+</p>
+
+
 
 ### ScrollFactory
 
