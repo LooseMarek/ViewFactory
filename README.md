@@ -411,6 +411,22 @@ By default, horizontal stack is using `.fillEqually` distribution and spacing vi
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestHorizontal/testHorizontal_WhenChildViewsAreEven_ShouldFillEquallyEntireSpace.1.png" width="375">
 </p>
 
+##### TwoColumns
+
+By default, two columns stack is using `.equalCentering` distribution, `.center` alignment and spacing views with `PaddingEnum.twentyFour` for each column and using `.fillEqually` distribution, `.center` alignment and spacing views with `PaddingEnum.twentyFour` for the row (main stack).
+
+**Important: Even if child views will have uneven width, it will still set them to be equel. Modify `.distribution` if you'd like to change that behaviour.**
+
+`let stack = viewFactory.stack.twoColumns(leftColumnViews: [yellowView, greenView], leftColumnViews: [orangeView, blueView])`
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestTwoColumns/testTwoColumns_WhenChildViewsAreEven_ShouldFillEquallyEntireSpace.1.png" width="375">
+</p>
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestTwoColumns/testTwoColumns_WhenChildViewsAreNotEven_ShouldExpandHeightToMatchLargestChild.1.png" width="375">
+</p>
+
 `TODO`
 
 ### ScrollFactory
