@@ -32,7 +32,7 @@ Swift package module used for creating basic views with [Factory Pattern](https:
 	- [TabBarHelper](#tabbarhelper)
 - [Views](#views)
 	- [BaseCell](#basecell)
-	- [ScrollView](#scrollview)
+	- [VerticalScrollView](#verticalscrollview)
 - [Testing](#testing)
 - [Author](#author)
 

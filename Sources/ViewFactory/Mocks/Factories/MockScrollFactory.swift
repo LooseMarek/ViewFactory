@@ -18,6 +18,6 @@ public class MockScrollFactory: ScrollFactoryProtocol {
     public func vertical() -> VerticalScrollView {
         mainCallsCount += 1
         
-        return MockScrollView(constraintHelper: MockConstraintHelper())
+        return MockVerticalScrollView(constraintHelper: constraintHelper)
     }
 }
