@@ -30,6 +30,9 @@ Swift package module used for creating basic views with [Factory Pattern](https:
 	- [GradientHelper](#gradienthelper)
 	- [NavigationBarHelper](#navigationbarhelper)
 	- [TabBarHelper](#tabbarhelper)
+- [Enums](#enums)
+	- [PaddingEnum](#paddingenum)
+	- [ElevationEnum](#elevationenum)
 - [Views](#views)
 	- [BaseCell](#basecell)
 	- [VerticalScrollView](#verticalscrollview)
@@ -501,6 +504,40 @@ let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
 
 `TODO`
 
+## Enums
+
+### PaddingEnum
+
+PaddingEnum is predefine dimention recommended to use in iOS apps for any padding around the views.
+
+```
+public enum PaddingEnum: CGFloat {
+    case zero = 0
+    case four = 4
+    case eight = 8
+    case sixteen = 16
+    case twentyFour = 24
+}
+```
+
+### ElevationEnum
+
+ElevationEnum is predefine dimention recommended to use for elevating any views as per [material.io](https://material.io/design/environment/elevation.html#default-elevations).
+
+```
+public enum ElevationEnum: CGFloat {
+    case zeroDp = 0
+    case oneDp = 1
+    case twoDp = 2
+    case threeDp = 3
+    case fourDp = 4
+    case sixDp = 6
+    case eightDp = 8
+    case twelveDp = 12
+    case sixteenDp = 16
+    case twentyFourDp = 24
+}
+```
 
 ## Views
 
