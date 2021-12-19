@@ -469,7 +469,60 @@ let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
 
 ### TableFactory
 
-`TODO`
+##### Main
+
+By default, main table view is set to have `.clear` backhround, have `.none` separator and frame `.zero`.
+
+`let tableView = viewFactory.table.main()`
+
+You can also use it with the frame.
+
+`let tableView = viewFactory.table.main(frame: CGRect()) `
+
+**See: Views - BaseCell for more information.**
+
+##### Refresh
+
+By default, refresh control is set to have tintColor `.tableRefresh`.
+
+You can add it to your table like so.
+
+```
+private(set) var tableView: UITableView
+private(set) var refreshControl = UIRefreshControl
+
+init(viewFactory: ViewFactoryProtocol) {
+	tableView = viewFactory.table.main()
+	refreshControl = viewFactory.table.refresh()
+}
+```
+
+```
+override func viewDidLoad() {
+	super.viewDidLoad()
+	refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+}
+```
+
+```
+override func viewWillAppear(_ animated: Bool) {
+	super.viewWillAppear(animated)
+	tableView.addSubview(refreshControl)
+}
+```
+
+```
+@objc func refresh(_ sender: AnyObject) {
+	// Perform refresh
+}
+```
+
+Don't forget to end refreshing and reload table once your refresh action is completed.
+
+```
+self.refreshControl.endRefreshing()
+self.tableView.reloadData()
+```
 
 ### CardFactory
 
