@@ -1,5 +1,5 @@
 //
-//  ScrollView.swift
+//  VerticalScrollView.swift
 //  ViewFactory
 //
 //  Created by Marek Loose on 01/02/2021.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ScrollView: UIScrollView {
+public class VerticalScrollView: UIScrollView {
     
     public var scrollPage: UIView
     private(set) var scrollPageWidthConstaint: NSLayoutConstraint
@@ -29,7 +29,13 @@ public class ScrollView: UIScrollView {
         return nil
     }
     
-    public func removeSubviews() {
+    public func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) throws {
+        removeSubviews()
+        setSubviews(subviews, in: parent)
+        try setLayout(subviews: subviews, parent: parent, horizontalPadding: horizontalPadding, verticalPaddings: verticalPaddings)
+    }
+    
+    func removeSubviews() {
         for scrollPageSubview in scrollPage.subviews {
             scrollPageSubview.removeFromSuperview()
         }
@@ -39,17 +45,26 @@ public class ScrollView: UIScrollView {
         }
     }
     
-    public func setSubviews() {
+    func setSubviews(_ subviews: [UIView], in parent: UIView) {
+        parent.addSubview(self)
         addSubview(scrollPage)
+        
+        for subview in subviews {
+            scrollPage.addSubview(subview)
+        }
     }
     
-    public func setLayout() {
+    func setLayout(subviews: [UIView], parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) throws {
         scrollPage.translatesAutoresizingMaskIntoConstraints = false
     
+        constraintHelper.setAll(for: self, to: parent.safeAreaLayoutGuide, at: 0)
         constraintHelper.setAll(for: scrollPage, to: self, at: 0)
+        updateFrameForScrollPage(parent.frame)
+        
+        try constraintHelper.setStack(for: subviews, to: scrollPage, horizontalAt: horizontalPadding, verticalAt: verticalPaddings)
     }
     
-    public func updateFrameForScrollPage(_ scrollPageFrame: CGRect) {
+    func updateFrameForScrollPage(_ scrollPageFrame: CGRect) {
         scrollPage.frame = scrollPageFrame
         scrollPageWidthConstaint.constant = scrollPageFrame.width
     }

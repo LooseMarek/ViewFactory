@@ -8,8 +8,9 @@
 
 import UIKit
 
-public class MockScrollView: ScrollView {
+public class MockScrollView: VerticalScrollView {
     
+    public var initSubviewsCallCount: Int = 0
     public var removeSubviewsCallCount: Int = 0
     public var setSubviewsCallCount: Int = 0
     public var setLayoutCallCount: Int = 0
@@ -25,19 +26,23 @@ public class MockScrollView: ScrollView {
         return nil
     }
     
-    public override func removeSubviews() {
+    public override func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) {
+        initSubviewsCallCount += 1
+    }
+    
+    override func removeSubviews() {
         removeSubviewsCallCount += 1
     }
     
-    public override func setSubviews() {
+    override func setSubviews(_ subviews: [UIView], in parent: UIView) {
         setSubviewsCallCount += 1
     }
     
-    public override func setLayout() {
+    override func setLayout(subviews: [UIView], parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) {
         setLayoutCallCount += 1
     }
     
-    public override func updateFrameForScrollPage(_ scrollPageFrame: CGRect) {
+    override func updateFrameForScrollPage(_ scrollPageFrame: CGRect) {
         updateFrameForScrollPageCallCount += 1
         
         mockScrollPageFrame = scrollPageFrame

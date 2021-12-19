@@ -11,7 +11,7 @@ import UIKit
 public protocol ScrollFactoryProtocol {
     var constraintHelper: ConstraintHelperProtocol { get }
     
-    func main() -> ScrollView
+    func vertical() -> VerticalScrollView
 }
 
 public class ScrollFactory: ScrollFactoryProtocol {
@@ -22,8 +22,8 @@ public class ScrollFactory: ScrollFactoryProtocol {
         self.constraintHelper = constraintHelper
     }
     
-    public func main() -> ScrollView {
-        let scrollView = ScrollView(constraintHelper: constraintHelper)
+    public func vertical() -> VerticalScrollView {
+        let scrollView = VerticalScrollView(constraintHelper: constraintHelper)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
 
         return scrollView

@@ -456,11 +456,13 @@ let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
     <img src="./Tests/ViewFactorySnapshotTests/Factories/Stack/__Snapshots__/TestLabeledView/testLabeledView_WhenUsedWithView_ShouldLabelView.1.png" width="375">
 </p>
 
-
-
 ### ScrollFactory
 
-`TODO`
+##### Vertical
+
+`let scrollView = viewFactory.scroll.vertical()`
+
+**See: Views - VerticalScrollView for more information.**
 
 ### TableFactory
 
@@ -506,9 +508,43 @@ let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
 
 `TODO`
 
-### ScrollView
+### VerticalScrollView
 
-`TODO`
+VerticalScrollView is a helper view to make implementation of `UIScrollView` simpler. 
+
+You can initialize it from the `ScrollFactory`
+
+```
+private(set) var scrollView: VerticalScrollView
+
+init(viewFactory: ViewFactoryProtocol) {
+	scrollView = viewFactory.scroll.vertical()
+}
+```
+
+VerticalScrollView contains only one subview `scrollPage` which fills entire VerticalScrollView and expand vertically with the content. By default `scrollPage` is **not** added to VerticalScrollView - this is to be able to easly remove/add all subviews based on the UI state (e.g. if ViewController is recreated from `viewWillTransition`).
+
+In your `viewWillAppear` or `viewWillTransition` call:
+
+```
+override func viewWillAppear(_ animated: Bool) {
+	let horizontalPadding: CGFloat = PaddingEnum.sixteen.rawValue
+	let verticalPaddings: [CGFloat] = [
+		PaddingEnum.sixteen.rawValue, // Padding between top and firstView
+		PaddingEnum.twentyFour.rawValue, // Padding between firstView and secondView
+		PaddingEnum.twentyFour.rawValue, // Padding between secondView and thirdView
+		PaddingEnum.sixteen.rawValue // Padding between thirdView and bottom
+	]
+	let subviewsInOrder: [UIView] = [
+		firstView,
+		secondView,
+		thirdView
+	]
+    
+	// Will throw error when count of verticalPaddings won't be higher by one of the subviews count.
+	try! scrollView.initSubviews(subviewsInOrder, in: view, horizontalPadding: horizontalPadding, verticalPaddings: verticalPaddings)  
+}
+```
 
 ## Testing
 
