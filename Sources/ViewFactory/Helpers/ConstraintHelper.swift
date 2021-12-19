@@ -49,7 +49,9 @@ public protocol ConstraintHelperProtocol {
 }
 
 public enum ConstraintErrorEnum: Error {
-    case notEnoughVerticalConstraints
+    case missingSubviews
+    case missingVerticalConstraint
+    case tooManyVerticalConstraints
 }
 
 public class ConstraintHelper: ConstraintHelperProtocol {
@@ -163,10 +165,22 @@ public class ConstraintHelper: ConstraintHelperProtocol {
     // Stack to UIView
     
     public func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
-        let haveEnoughVerticalConstaints: Bool = childrenInOrder.count <= verticalAt.count
+        let haveNoSubviews: Bool = childrenInOrder.count == 0
         
-        if (!haveEnoughVerticalConstaints) {
-            throw ConstraintErrorEnum.notEnoughVerticalConstraints
+        if haveNoSubviews {
+            throw ConstraintErrorEnum.missingSubviews
+        }
+        
+        let verticalConstraintsMatchSubviews: Bool = childrenInOrder.count == verticalAt.count - 1 // There should always be one more vertical constraint than views
+        
+        if (!verticalConstraintsMatchSubviews) {
+            let dontHaveEnoughVerticalConstaints: Bool = childrenInOrder.count > verticalAt.count - 1
+            
+            if dontHaveEnoughVerticalConstaints {
+                throw ConstraintErrorEnum.missingVerticalConstraint
+            } else {
+                throw ConstraintErrorEnum.tooManyVerticalConstraints
+            }
         }
         
         for (index, child) in childrenInOrder.enumerated() {
@@ -198,10 +212,22 @@ public class ConstraintHelper: ConstraintHelperProtocol {
     // Stack to UILayoutGuide
     
     public func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
-        let haveEnoughVerticalConstaints: Bool = childrenInOrder.count <= verticalAt.count
+        let haveNoSubviews: Bool = childrenInOrder.count == 0
         
-        if (!haveEnoughVerticalConstaints) {
-            throw ConstraintErrorEnum.notEnoughVerticalConstraints
+        if haveNoSubviews {
+            throw ConstraintErrorEnum.missingSubviews
+        }
+        
+        let verticalConstraintsMatchSubviews: Bool = childrenInOrder.count == verticalAt.count - 1 // There should always be one more vertical constraint than views
+        
+        if (!verticalConstraintsMatchSubviews) {
+            let dontHaveEnoughVerticalConstaints: Bool = childrenInOrder.count > verticalAt.count - 1
+            
+            if dontHaveEnoughVerticalConstaints {
+                throw ConstraintErrorEnum.missingVerticalConstraint
+            } else {
+                throw ConstraintErrorEnum.tooManyVerticalConstraints
+            }
         }
         
         for (index, child) in childrenInOrder.enumerated() {
