@@ -50,7 +50,6 @@ public extension CAGradientLayer {
         self.startPoint = start.point
         self.endPoint = end.point
         self.colors = colors
-        self.locations = (0..<colors.count).map(NSNumber.init)
         self.type = type
     }
 }

@@ -613,11 +613,7 @@ Stack:
 Stack will set the same horizontal padding for each child view and "wrap" each child view with the `verticalAt` paddings.
 
 ```
-do {
-    try constraintHelper.setStack(for: [child1, child2], to: parent, horizontalAt: .zero, verticalAt: [.four, .twentyFour, .four])
-} catch {
-    // Handle error
-}
+try constraintHelper.setStack(for: [child1, child2], to: parent, horizontalAt: .zero, verticalAt: [.four, .twentyFour, .four])
 ```
 
 Above will output with the constraints:
@@ -638,7 +634,7 @@ Above will output with the constraints:
 
 **- there are no child views**
 
-**- number of `verticalAt` paddings is not larger than 1 by child views count, e.g. for 2 childs, there need to be 3 vertical constraints, for 3 childs, 4 constraints etc.**
+**- number of `verticalAt` paddings is not larger than 1 by child views count, e.g. for 2 children, there need to be 3 vertical constraints, for 3 children, 4 constraints etc.**
 
 Size:
 
@@ -652,7 +648,81 @@ Center:
 
 ### GradientHelper
 
-`TODO`
+Diagonal:
+
+```
+try gradientHelper.diagonal(for: view, colorTop: .red, colorBottom: .blue)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestDiagonal/testDiagonal_WhenGradientLayerWithDefaultNameNotExist_ShouldAddGradientLayerToView.1.png" width="375">
+</p>
+
+**Important: This will throw an error if given gradient layer already exists.**
+
+Custom (default):
+
+```
+try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenGradientLayerIsDefault_ShouldAddRadialGradientFromTopLeftToBottomRight.1.png" width="375">
+</p>
+
+Custom (default):
+
+```
+try gradientHelper.custom(for: view, cornerRadius: 16.0, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenCornerRadiusSet_ShouldAddCornerRadiusToGradientLayer.1.png" width="375">
+</p>
+
+Custom (changing start/end point):
+
+```
+try gradientHelper.custom(for: view, start: .topCenter, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenStartPointSetToTopCenter_ShouldAddGradientLayerFromTopCenter.1.png" width="375">
+</p>
+
+```
+try gradientHelper.custom(for: view, start: .center, colors: [UIColor.red.cgColor, UIColor.blue.cgColor])
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenStartPointSetToCenter_ShouldAddGradientLayerFromCenter.1.png" width="375">
+</p>
+
+Custom (changing type):
+
+```
+try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.cgColor], type: .radial)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenTypeRadial_ShouldAddRadialGradientLayer.1.png" width="375">
+</p>
+
+```
+try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.cgColor], type: .axial)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenTypeAxial_ShouldAddAxialGradientLayer.1.png" width="375">
+</p>
+
+```
+try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.cgColor], type: .conic)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestCustom/testCustom_WhenTypeConic_ShouldAddConicGradientLayer.1.png" width="375">
+</p>
 
 ### NavigationBarHelper
 
