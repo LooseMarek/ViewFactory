@@ -17,7 +17,7 @@ public enum Elevation {
     case zeroDp, oneDp, twoDp, threeDp, fourDp, sixDp, eightDp, twelveDp, sixteenDp, twentyFourDp
     case custom(CGFloat)
     
-    var value: CGFloat {
+    public var value: CGFloat {
         switch self {
         case .zeroDp: // Standard side sheet, Text button, Top app bar (resting elevation)
           return 0

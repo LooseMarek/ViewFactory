@@ -13,7 +13,7 @@ public enum Padding {
     case zero, four, eight, sixteen, twentyFour
     case custom(CGFloat)
     
-    var value: CGFloat {
+    public var value: CGFloat {
         switch self {
         case .zero:
           return 0
