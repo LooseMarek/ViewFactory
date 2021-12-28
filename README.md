@@ -533,11 +533,42 @@ self.tableView.reloadData()
 
 ### ViewFactory
 
-`TODO`
+If you like to add any of your custom view factories, you can do that by extending `ViewFactoryProtocol`.
+
+In this way, your custom factories would be available from your `ViewFactory` implementation as any other factories.
+
+```
+import ViewFactory
+
+extension ViewFactoryProtocol {
+    var custom: CustomViewFactoryProtocol {
+        return CustomViewFactory(labelFactory: label, stackFactory: stack) // You can pass any other factories as a parameter
+    }
+}
+```
+
+```
+let customView = viewFactory.custom.example()
+```
 
 ### Child factories
 
-`TODO`
+You can also extend any existing factories with your custom views by extending protocols.
+
+```
+import UIKit
+import ViewFactory
+
+extension LabelFactoryProtocol {
+    
+    func exampleLabel() -> UILabel {
+        let label = UILabel()
+        // Your custom style
+        
+        return label
+    }
+}
+```
 
 ## Helpers
 
