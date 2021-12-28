@@ -22,7 +22,7 @@ public class MockVerticalScrollView: VerticalScrollView {
         return nil
     }
     
-    public override func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) {
+    public override func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) {
         initSubviewsCallCount += 1
     }
 }

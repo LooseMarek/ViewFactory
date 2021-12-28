@@ -69,12 +69,9 @@ open class BaseCell: UITableViewCell {
         guard let mainView = mainView else {
             return
         }
-        
-        let horizontalPadding: CGFloat = PaddingEnum.sixteen.rawValue
-        let bottomPadding: CGFloat = PaddingEnum.sixteen.rawValue
 
-        constraintHelper.setHorizontal(for: mainView, to: contentView.safeAreaLayoutGuide, at: horizontalPadding)
-        constraintHelper.setTop(for: mainView, to: contentView.safeAreaLayoutGuide, at: 0)
-        constraintHelper.setBottom(for: mainView, to: contentView.safeAreaLayoutGuide, at: bottomPadding)
+        constraintHelper.setHorizontal(for: mainView, to: contentView.safeAreaLayoutGuide, at: .sixteen)
+        constraintHelper.setTop(for: mainView, to: contentView.safeAreaLayoutGuide, at: .zero)
+        constraintHelper.setBottom(for: mainView, to: contentView.safeAreaLayoutGuide, at: .sixteen)
     }
 }

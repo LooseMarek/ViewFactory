@@ -29,7 +29,7 @@ public class VerticalScrollView: UIScrollView {
         return nil
     }
     
-    public func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) throws {
+    public func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) throws {
         removeSubviews()
         setSubviews(subviews, in: parent)
         try setLayout(subviews: subviews, parent: parent, horizontalPadding: horizontalPadding, verticalPaddings: verticalPaddings)
@@ -54,11 +54,11 @@ public class VerticalScrollView: UIScrollView {
         }
     }
     
-    func setLayout(subviews: [UIView], parent: UIView, horizontalPadding: CGFloat, verticalPaddings: [CGFloat]) throws {
+    func setLayout(subviews: [UIView], parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) throws {
         scrollPage.translatesAutoresizingMaskIntoConstraints = false
     
-        constraintHelper.setAll(for: self, to: parent.safeAreaLayoutGuide, at: 0)
-        constraintHelper.setAll(for: scrollPage, to: self, at: 0)
+        constraintHelper.setAll(for: self, to: parent.safeAreaLayoutGuide, at: .zero)
+        constraintHelper.setAll(for: scrollPage, to: self, at: .zero)
         updateFrameForScrollPage(parent.frame)
         
         try constraintHelper.setStack(for: subviews, to: scrollPage, horizontalAt: horizontalPadding, verticalAt: verticalPaddings)

@@ -45,8 +45,6 @@ public class CardFactory: CardFactoryProtocol {
     
     public func main(card: UIView = UIView(), stack: UIStackView) -> UIView {
         let elevation = ElevationEnum.fourDp.rawValue
-        let verticalPadding = PaddingEnum.twentyFour.rawValue
-        let horizontalPadding = PaddingEnum.sixteen.rawValue
         
         card.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
         card.backgroundColor = viewFactoryColor.card
@@ -63,8 +61,8 @@ public class CardFactory: CardFactoryProtocol {
         
         card.addSubview(stack)
         
-        constraintHelper.setVertical(for: stack, to: card, at: verticalPadding)
-        constraintHelper.setHorizontal(for: stack, to: card, at: horizontalPadding)
+        constraintHelper.setVertical(for: stack, to: card, at: .twentyFour)
+        constraintHelper.setHorizontal(for: stack, to: card, at: .sixteen)
 
         return card
     }

@@ -31,7 +31,7 @@ Swift package module used for creating basic views with [Factory Pattern](https:
 	- [NavigationBarHelper](#navigationbarhelper)
 	- [TabBarHelper](#tabbarhelper)
 - [Enums](#enums)
-	- [PaddingEnum](#paddingenum)
+	- [Padding](#padding)
 	- [ElevationEnum](#elevationenum)
 - [Views](#views)
 	- [BaseCell](#basecell)
@@ -570,11 +570,85 @@ extension LabelFactoryProtocol {
 }
 ```
 
+```
+let customLabel = viewFactory.label.exampleLabel()
+```
+
 ## Helpers
+
+All helpers are accessible over the style helper from `ViewFactory`.
+
+```
+let styleHelper = viewFactory.styleHelper
+```
 
 ### ConstraintHelper
 
-`TODO`
+```
+let constraintHelper = viewFactory.styleHelper.constraint
+```
+
+`ConstraintHelper` is used, when adding any views programmatically.
+
+You can add the constraints between single `UIView` or multiple `UIView`s and the other `UIView` or `UILayoutGuide`. They are using `Padding` enum for spacing.
+
+Single constraints:
+
+- `constraintHelper.setTop(for: firstView, to: secondView, at: .four)`
+- `constraintHelper.setBottom(for: firstView, to: secondView, at: .four)`
+- `constraintHelper.setLeft(for: firstView, to: secondView, at: .four)`
+- `constraintHelper.setRight(for: firstView, to: secondView, at: .four)`
+- `constraintHelper.setBellow(for: firstView, to: secondView, at: .four)`
+
+Directional constraints:
+
+- `constraintHelper.setVertical(for: child, to: parent, at: .sixteen)` - will add constraint on top and bottom
+- `constraintHelper.setVertical(for: [child1, child2], to: parent, at: .sixteen)` - will add constraint on top and bottom for each child
+- `constraintHelper.setHorizontal(for: child, to: parent, at: .sixteen)` - will add constraint on left and right
+- `constraintHelper.setHorizontal(for: [child1, child2], to: parent, at: .sixteen)` - will add constraint on left and right for each child
+- `constraintHelper.setAll(for: child, to: parent, at: .sixteen)` - will add constraint on top, bottom, left and right
+
+Stack:
+
+Stack will set the same horizontal padding for each child view and "wrap" each child view with the `verticalAt` paddings.
+
+```
+do {
+    try constraintHelper.setStack(for: [child1, child2], to: parent, horizontalAt: .zero, verticalAt: [.four, .twentyFour, .four])
+} catch {
+    // Handle error
+}
+```
+
+Above will output with the constraints:
+
+```
+        .four
+          ||
+.zero = child1 = .zero
+          ||
+     .twentyFour
+          ||
+.zero = child2 = .zero
+          ||
+        .four
+```
+
+**Important: `setStack()` will throw an error if:**
+
+**- there are no child views**
+
+**- number of `verticalAt` paddings is not larger than 1 by child views count, e.g. for 2 childs, there need to be 3 vertical constraints, for 3 childs, 4 constraints etc.**
+
+Size:
+
+`let heightConstraint = constraintHelper.setHeight(for: view, at: 52.0)`
+
+`let widthConstraint = constraintHelper.setWidth(for: view, at: 100.0)`
+
+Center:
+
+`constraintHelper.setCenter(for: child, in: parent)` - will center child in parent view
 
 ### GradientHelper
 
@@ -590,18 +664,40 @@ extension LabelFactoryProtocol {
 
 ## Enums
 
-### PaddingEnum
+### Padding
 
-PaddingEnum is predefine dimention recommended to use in iOS apps for any padding around the views.
+Padding is predefine dimention recommended to use in iOS apps for any padding around the views.
 
 ```
-public enum PaddingEnum: CGFloat {
-    case zero = 0
-    case four = 4
-    case eight = 8
-    case sixteen = 16
-    case twentyFour = 24
+public enum Padding {
+    case zero, four, eight, sixteen, twentyFour
+    case custom(CGFloat)
+    
+    var value: CGFloat {
+        switch self {
+        case .zero:
+          return 0
+        case .four:
+            return 4.0
+        case .eight:
+            return 8.0
+        case .sixteen:
+            return 16.0
+        case .twentyFour:
+            return 24.0
+        case .custom(let customValue):
+          return customValue
+        }
+    }
 }
+```
+
+```
+let definedPadding: CGFloat = Padding.four.value
+```
+
+```
+let customPadding: CGFloat = Padding.custom(72.0).value
 ```
 
 ### ElevationEnum

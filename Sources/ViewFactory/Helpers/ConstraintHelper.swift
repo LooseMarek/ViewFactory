@@ -10,35 +10,35 @@ import UIKit
 
 public protocol ConstraintHelperProtocol {
     // To UIView
-    func setTop(for firstView: UIView, to secondView: UIView, at: CGFloat)
-    func setBottom(for firstView: UIView, to secondView: UIView, at: CGFloat)
-    func setLeft(for firstView: UIView, to secondView: UIView, at: CGFloat)
-    func setRight(for firstView: UIView, to secondView: UIView, at: CGFloat)
-    func setBellow(for firstView: UIView, bellow secondView: UIView, at: CGFloat)
+    func setTop(for firstView: UIView, to secondView: UIView, at: Padding)
+    func setBottom(for firstView: UIView, to secondView: UIView, at: Padding)
+    func setLeft(for firstView: UIView, to secondView: UIView, at: Padding)
+    func setRight(for firstView: UIView, to secondView: UIView, at: Padding)
+    func setBellow(for firstView: UIView, bellow secondView: UIView, at: Padding)
     
     // To UILayoutGuide
-    func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat)
-    func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat)
-    func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat)
-    func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat)
+    func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: Padding)
+    func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: Padding)
+    func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: Padding)
+    func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: Padding)
     
     // Directional to UIView
-    func setVertical(for child: UIView, to parent: UIView, at: CGFloat)
-    func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat)
-    func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat)
-    func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat)
-    func setAll(for child: UIView, to parent: UIView, at: CGFloat)
+    func setVertical(for child: UIView, to parent: UIView, at: Padding)
+    func setVertical(for childs: [UIView], to parent: UIView, at: Padding)
+    func setHorizontal(for child: UIView, to parent: UIView, at: Padding)
+    func setHorizontal(for childs: [UIView], to parent: UIView, at: Padding)
+    func setAll(for child: UIView, to parent: UIView, at: Padding)
     
     // Directional to UILayoutGuide
-    func setVertical(for child: UIView, to parent: UILayoutGuide, at: CGFloat)
-    func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: CGFloat)
-    func setAll(for child: UIView, to parent: UILayoutGuide, at: CGFloat)
+    func setVertical(for child: UIView, to parent: UILayoutGuide, at: Padding)
+    func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: Padding)
+    func setAll(for child: UIView, to parent: UILayoutGuide, at: Padding)
     
     // Stack to UIView
-    func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws
+    func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: Padding, verticalAt: [Padding]) throws
     
     // Stack to UILayoutGuide
-    func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws
+    func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: Padding, verticalAt: [Padding]) throws
     
     // Size
     func setHeight(for view: UIView, at: CGFloat) -> NSLayoutConstraint
@@ -60,111 +60,111 @@ public class ConstraintHelper: ConstraintHelperProtocol {
     
     // To UIView
     
-    public func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.topAnchor.constraint(equalTo: secondView.topAnchor, constant: at),
+            firstView.topAnchor.constraint(equalTo: secondView.topAnchor, constant: at.value),
         ])
     }
     
-    public func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -at)
+            firstView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -at.value)
         ])
     }
     
-    public func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: at)
+            firstView.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: at.value)
         ])
     }
     
-    public func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -at)
+            firstView.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -at.value)
         ])
     }
     
     // To UILayoutGuide
     
-    public func setTop(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setTop(for firstView: UIView, to secondView: UIView, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.topAnchor.constraint(equalTo: secondView.topAnchor, constant: at),
+            firstView.topAnchor.constraint(equalTo: secondView.topAnchor, constant: at.value),
         ])
     }
     
-    public func setBottom(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setBottom(for firstView: UIView, to secondView: UIView, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -at)
+            firstView.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -at.value)
         ])
     }
     
-    public func setLeft(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setLeft(for firstView: UIView, to secondView: UIView, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: at)
+            firstView.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: at.value)
         ])
     }
     
-    public func setRight(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setRight(for firstView: UIView, to secondView: UIView, at: Padding) {
         NSLayoutConstraint.activate([
-            firstView.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -at)
+            firstView.trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -at.value)
         ])
     }
     
-    public func setBellow(for firstView: UIView, bellow secondView: UIView, at: CGFloat) {
+    public func setBellow(for firstView: UIView, bellow secondView: UIView, at: Padding) {
          NSLayoutConstraint.activate([
-            firstView.topAnchor.constraint(equalTo: secondView.bottomAnchor, constant: at)
+            firstView.topAnchor.constraint(equalTo: secondView.bottomAnchor, constant: at.value)
          ])
     }
     
     // Directional to UIView
     
-    public func setVertical(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setVertical(for child: UIView, to parent: UIView, at: Padding) {
         setTop(for: child, to: parent, at: at)
         setBottom(for: child, to: parent, at: at)
     }
     
-    public func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat) {
+    public func setVertical(for childs: [UIView], to parent: UIView, at: Padding) {
         for child in childs {
             setVertical(for: child, to: parent, at: at)
         }
     }
     
-    public func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setHorizontal(for child: UIView, to parent: UIView, at: Padding) {
         setLeft(for: child, to: parent, at: at)
         setRight(for: child, to: parent, at: at)
     }
     
-    public func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat) {
+    public func setHorizontal(for childs: [UIView], to parent: UIView, at: Padding) {
         for child in childs {
             setHorizontal(for: child, to: parent, at: at)
         }
     }
     
-    public func setAll(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setAll(for child: UIView, to parent: UIView, at: Padding) {
         setVertical(for: child, to: parent, at: at)
         setHorizontal(for: child, to: parent, at: at)
     }
     
     // Directional to UILayoutGuide
     
-    public func setVertical(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setVertical(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         setTop(for: child, to: parent, at: at)
         setBottom(for: child, to: parent, at: at)
     }
     
-    public func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         setLeft(for: child, to: parent, at: at)
         setRight(for: child, to: parent, at: at)
     }
     
-    public func setAll(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setAll(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         setVertical(for: child, to: parent, at: at)
         setHorizontal(for: child, to: parent, at: at)
     }
     
     // Stack to UIView
     
-    public func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
+    public func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: Padding, verticalAt: [Padding]) throws {
         let haveNoSubviews: Bool = childrenInOrder.count == 0
         
         if haveNoSubviews {
@@ -211,7 +211,7 @@ public class ConstraintHelper: ConstraintHelperProtocol {
     
     // Stack to UILayoutGuide
     
-    public func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
+    public func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: Padding, verticalAt: [Padding]) throws {
         let haveNoSubviews: Bool = childrenInOrder.count == 0
         
         if haveNoSubviews {

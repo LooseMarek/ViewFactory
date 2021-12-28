@@ -15,88 +15,88 @@ public class MockConstraintHelper: ConstraintHelperProtocol {
     public var setStackToViewCallsCount: Int = 0
     public var setStackToLayoutGuideCallsCount: Int = 0
     
-    public var mockVerticalAt: [CGFloat] = []
+    public var mockVerticalAt: [Padding] = []
     public var mockChildrenInOrder: [UIView] = []
     public var mockLayoutConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
     public init() {}
     
-    public func setTop(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setTop(for firstView: UIView, to secondView: UIView, at: Padding) {
         
     }
     
-    public func setBottom(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setBottom(for firstView: UIView, to secondView: UIView, at: Padding) {
         
     }
     
-    public func setLeft(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setLeft(for firstView: UIView, to secondView: UIView, at: Padding) {
         
     }
     
-    public func setRight(for firstView: UIView, to secondView: UIView, at: CGFloat) {
+    public func setRight(for firstView: UIView, to secondView: UIView, at: Padding) {
         
     }
     
-    public func setBellow(for firstView: UIView, bellow secondView: UIView, at: CGFloat) {
+    public func setBellow(for firstView: UIView, bellow secondView: UIView, at: Padding) {
         
     }
     
-    public func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setTop(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setBottom(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setLeft(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: CGFloat) {
+    public func setRight(for firstView: UIView, to secondView: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setVertical(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setVertical(for child: UIView, to parent: UIView, at: Padding) {
         
     }
     
-    public func setVertical(for childs: [UIView], to parent: UIView, at: CGFloat) {
+    public func setVertical(for childs: [UIView], to parent: UIView, at: Padding) {
         
     }
     
-    public func setHorizontal(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setHorizontal(for child: UIView, to parent: UIView, at: Padding) {
         
     }
     
-    public func setHorizontal(for childs: [UIView], to parent: UIView, at: CGFloat) {
+    public func setHorizontal(for childs: [UIView], to parent: UIView, at: Padding) {
         
     }
     
-    public func setAll(for child: UIView, to parent: UIView, at: CGFloat) {
+    public func setAll(for child: UIView, to parent: UIView, at: Padding) {
         setAllToViewCallsCount += 1
     }
     
-    public func setVertical(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setVertical(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setHorizontal(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         
     }
     
-    public func setAll(for child: UIView, to parent: UILayoutGuide, at: CGFloat) {
+    public func setAll(for child: UIView, to parent: UILayoutGuide, at: Padding) {
         setAllToLayoutGuideCallsCount += 1
     }
     
-    public func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
+    public func setStack(for childrenInOrder: [UIView], to parent: UIView, horizontalAt: Padding, verticalAt: [Padding]) throws {
         setStackToViewCallsCount += 1
         
         mockVerticalAt = verticalAt
         mockChildrenInOrder = childrenInOrder
     }
     
-    public func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: CGFloat, verticalAt: [CGFloat]) throws {
+    public func setStack(for childrenInOrder: [UIView], to parent: UILayoutGuide, horizontalAt: Padding, verticalAt: [Padding]) throws {
         setStackToLayoutGuideCallsCount += 1
 
         mockVerticalAt = verticalAt
