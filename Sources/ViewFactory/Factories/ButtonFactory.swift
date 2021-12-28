@@ -43,7 +43,7 @@ public class ButtonFactory: ButtonFactoryProtocol {
         button.setTitleColor(viewFactoryColor.onButtonNegative, for: .normal)
         button.tintColor = viewFactoryColor.onButtonNegative
         button.layer.cornerRadius = 8.0
-        button.layer.zPosition = ElevationEnum.sixDp.rawValue
+        button.layer.zPosition = Elevation.sixDp.value
         button.layer.borderWidth = 1
         button.layer.borderColor = viewFactoryColor.onButtonNegative.cgColor
         button.backgroundColor = viewFactoryColor.buttonNegative
@@ -83,7 +83,7 @@ public class ButtonFactory: ButtonFactoryProtocol {
         
         button.setTitleColor(viewFactoryColor.onButtonFab, for: .normal)
         button.tintColor = viewFactoryColor.onButtonFab
-        button.layer.zPosition = ElevationEnum.sixDp.rawValue
+        button.layer.zPosition = Elevation.sixDp.value
 
         let firstCgColor: CGColor = viewFactoryColor.buttonFabGradientFirst.cgColor
         let lastCgColor: CGColor = viewFactoryColor.buttonFabGradientLast.cgColor

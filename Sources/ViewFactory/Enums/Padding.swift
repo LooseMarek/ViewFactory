@@ -28,5 +28,5 @@ public enum Padding {
         case .custom(let customValue):
           return customValue
         }
-      }
+    }
 }

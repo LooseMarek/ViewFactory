@@ -44,7 +44,7 @@ public class CardFactory: CardFactoryProtocol {
     }
     
     public func main(card: UIView = UIView(), stack: UIStackView) -> UIView {
-        let elevation = ElevationEnum.fourDp.rawValue
+        let elevation = Elevation.fourDp.value
         
         card.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
         card.backgroundColor = viewFactoryColor.card
