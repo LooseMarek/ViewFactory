@@ -38,6 +38,7 @@ let package = Package(
                 .process("Factories/Input/__Snapshots__/"),
                 .process("Factories/Label/__Snapshots__/"),
                 .process("Factories/Stack/__Snapshots__/"),
+                .process("Factories/Card/__Snapshots__/"),
                 .process("Helpers/Gradient/__Snapshots__/"),
                 .process("Helpers/NavigationBar/__Snapshots__/"),
                 .process("Helpers/TabBar/__Snapshots__/")

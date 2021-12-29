@@ -12,7 +12,6 @@ import SnapshotTesting
 
 class Factory_Label_Test: XCTestCase {
     
-    // TODO: Fix size for child factories but use device sizes for Stack, Scroll and Table Factory
     var testFrameIphone8: CGRect!
     var testShortText: String!
     var testLongText: String!

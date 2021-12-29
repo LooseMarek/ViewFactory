@@ -526,8 +526,33 @@ self.tableView.reloadData()
 
 ### CardFactory
 
-`TODO`
+**Important: Card is being created with background color.**
 
+##### Main
+
+By default, main card is set to expand with the content. If you would like to "lock" its size, use `constraintHelper.setWidth()` or `constraintHelper.setHeight()` as needed.
+
+```
+let label1 = labelFactory.header()
+let label2 = labelFactory.body()
+let stack = stackFactory.vertical(views: [label1, label2])
+let card = viewFactory.card.main(stack: stack)
+_ = viewFactory.styleHelper.constraint.setWidth(for: card, at: 375.0)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Card/__Snapshots__/TestMain/testMain_WhenDefault_ShouldUseDefaultColors.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .labelHeader is set to .black
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+let card = viewFactory.card.main(stack: stack)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Factories/Card/__Snapshots__/TestMain/testMain_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColors.1.png" width="375">
+</p>
 
 ## Extending factories
 
