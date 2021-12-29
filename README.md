@@ -78,9 +78,9 @@ let viewFactory: ViewFactoryProtocol = ViewFactory()
 
 Most likely you would like to use your own color palette. 
 
-As usual, you can change colors of the views by changing it's color properties after initializing it, but it's recommended to define global color palette used across entire project.
+As usual, you can change the colors of the views by changing their color properties after initializing them, but it's recommended to define the global color palette used across an entire project.
 
-You can do this by creating custom ViewFactoryColor palette by implementing `ViewFactoryColorProtocol`:
+You can do this by creating a custom ViewFactoryColor palette by implementing `ViewFactoryColorProtocol`:
 
 ```
 import UIKit
@@ -98,17 +98,17 @@ let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactory
 let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
 ```
 
-In this way, if you wish to e.g. change color of all header labels, you can easly do it from `YourCustomViewFactoryColor` by changing `labelHeader` color. 
+In this way, if you wish to e.g. change the color of all header labels, you can easily do it from `YourCustomViewFactoryColor` by changing `labelHeader` color. 
 
 ## Factories
 
 ### LabelFactory
 
-**Important: All labels are being created with transparent background color. Examples below are using `.card` color as background to distinguish labels from document background (which may be white).**
+**Important: All labels are being created with a transparent background color. Examples below are using `.card` color as the background to distinguish labels from document background (which may be white).**
 
 ##### Header
 
-By default, header label is set to align to left and ajdust the font size to fit width and keep it on one line.
+By default, the header label is set to align to the left and adjust the font size to fit the width and keep it on one line.
 
 `let label = viewFactory.label.header()`
 
@@ -146,9 +146,9 @@ let label = viewFactory.label.header()
 
 Use for most of the body text.
 
-By default, body label is set to align to left and go into multiple lines.
+By default, the body label is set to align to left and go into multiple lines.
 
-**Note: For any fix height labels, the text will truncate (as per example below). If you like to expand label base on the text length, make sure to set height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
+**Note: For any fixed height labels, the text will truncate (as per the example below). If you like to expand the label based on the text length, make sure to set the height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
 
 `let label = viewFactory.label.body()`
 
@@ -184,11 +184,11 @@ let label = viewFactory.label.body()
 
 ##### Input
 
-Placed above inputs, body texts or any other views to use as a description.
+Placed above inputs, body texts, or any other views to use as a description.
 
 **Note: See StackFactory.labeledView() for intended usage.**
 
-By default, input label is set to align to left and ajdust the font size to fit width and keep it on one line.
+By default, the input label is set to align to the left and adjust the font size to fit the width and keep it on one line.
 
 `let label = viewFactory.label.inputLabel()`
 
@@ -226,9 +226,9 @@ let label = viewFactory.label.inputLabel()
 
 Use for most of the caption text (small print).
 
-Similar to `inputLabel` but by default, hint label is set to align to left and go into multiple lines.
+Similar to `inputLabel` but by default, the hint label is set to align to left and go into multiple lines.
 
-**Note: For any fix height labels, the text will truncate. If you like to expand label base on the text length, make sure to set height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
+**Note: For any fixed height labels, the text will truncate. If you like to expand the label based on the text length, make sure to set the height to be dynamic (e.g. by using constraints and placing it in the ScrollView).**
 
 `let label = viewFactory.label.hint()`
 
@@ -264,13 +264,13 @@ let label = viewFactory.label.hint()
 
 ### InputFactory
 
-**Important: All inputs are being created with dark navy blue background color.**
+**Important: All inputs are being created with the dark navy blue background color.**
 
-By default, all inputs are set to be 48.0 height (unless the frame of the UITextField will be changed), return key is set to "done" and the borders are rounded.
+By default, all inputs are set to be 48.0 height (unless the frame of the UITextField will be changed), the return key is set to "done" and the borders are rounded.
 
 ##### Number
 
-By default, number input is changing keyboard type to number pad and add toolbar.
+By default, number input is changing keyboard type to number pad and adding a toolbar.
 
 `let input = viewFactory.input.number()`
 
@@ -298,7 +298,7 @@ let input = viewFactory.input.number()
 
 ##### Text
 
-By default, text input is using default keyboard.
+By default, text input is using the default keyboard.
 
 `let input = viewFactory.input.text()`
 
@@ -328,7 +328,7 @@ let input = viewFactory.input.text()
 
 ##### Negative
 
-By default, negative button is set to be 40.0 height, and wrap text horizontally (so make sure to set either horizontal constraints or `heightAnchor` constraint). The button is also set to have borders (which are rounded and are the same color as text) and have dark navy blue background color.
+By default, the negative button is set to be 40.0 height, and wrap text horizontally (so make sure to set either horizontal constraints or `heightAnchor` constraint). The button is also set to have borders (which are rounded and are the same color as text) and have a dark navy blue background color.
 
 `let button = viewFactory.button.negative()`
 
@@ -348,7 +348,7 @@ let button = viewFactory.button.negative()
 
 ##### MainFab
 
-By default, main FAB button is set to be 40.0 height and width, and it's intended to be used with Image only. The button is also set to be rounded and have gradient background color.
+By default, the main FAB button is set to be 40.0 in height and width, and it's intended to be used with Image only. The button is also set to be rounded and have a gradient background color.
 
 `let button = viewFactory.button.mainFab()`
 
@@ -368,7 +368,7 @@ let button = viewFactory.button.mainFab()
 
 ##### MiniFab
 
-By default, mini FAB button is set to be 32.0 height and width, and it's intended to be used with Image only. The button is also set to be rounded and have gradient background color.
+By default, the mini FAB button is set to be 32.0 in height and width, and it's intended to be used with Image only. The button is also set to be rounded and have a gradient background color.
 
 `let button = viewFactory.button.miniFab()`
 
@@ -388,11 +388,11 @@ let button = viewFactory.button.miniFab()
 
 ### StackFactory
 
-**Important: None of stack views have borders. The red border in examples below are just for the reference.**
+**Important: None of the stack views have borders. The red border in the examples below is just for reference.**
 
 ##### Vertical
 
-By default, vertical stack is using `.fill` distribution and spacing views with `PaddingEnum.sixteen`.
+By default, the vertical stack is using `.fill` distribution and spacing views with `PaddingEnum.sixteen`.
 
 `let stack = viewFactory.stack.vertical(views: [yellowView, greenView, orangeView])`
 
@@ -408,7 +408,7 @@ By default, vertical stack is using `.fill` distribution and spacing views with 
 
 By default, horizontal stack is using `.fillEqually` distribution and spacing views with `PaddingEnum.sixteen`.
 
-**Important: Even if child views will have uneven width, it will still set them to be equel. Modify `.distribution` if you'd like to change that behaviour.**
+**Important: Even if child views will have uneven width, it will still set them to be equal. Modify `.distribution` if you'd like to change that behavior.**
 
 `let stack = viewFactory.stack.horizontal(views: [yellowView, greenView, orangeView])`
 
@@ -420,7 +420,7 @@ By default, horizontal stack is using `.fillEqually` distribution and spacing vi
 
 By default, two columns stack is using `.equalCentering` distribution, `.center` alignment and spacing views with `PaddingEnum.twentyFour` for each column and using `.fillEqually` distribution, `.center` alignment and spacing views with `PaddingEnum.twentyFour` for the row (main stack).
 
-**Important: Even if child views will have uneven width, it will still set them to be equel. Modify `.distribution` if you'd like to change that behaviour.**
+**Important: Even if child views will have uneven width, it will still set them to be equal. Modify `.distribution` if you'd like to change that behavior.**
 
 `let stack = viewFactory.stack.twoColumns(leftColumnViews: [yellowView, greenView], leftColumnViews: [orangeView, blueView])`
 
@@ -434,11 +434,11 @@ By default, two columns stack is using `.equalCentering` distribution, `.center`
 
 ##### LabeledView
 
-By default, labeled view stack is using `.fill` distribution and spacing views with `PaddingEnum.four`.
+By default, the labeled view stack is using `.fill` distribution and spacing views with `PaddingEnum.four`.
 
 This stack view is intended to be used for labeling inputs or other (custom) views.
 
-**Important: All labels from LabelFactory as well as stack views from StackFactory are being created with transparent background color. Examples below are using `.card` color as background of the stack view to distinguish labels from document background (which may be white).**
+**Important: All labels from LabelFactory as well as stack views from StackFactory are being created with a transparent background color. Examples below are using `.card` color as the background of the stack view to distinguish labels from document background (which may be white).**
 
 ```
 let label = viewFactory.label.inputLabel()
@@ -471,7 +471,7 @@ let stack = viewFactory.stack.labeledView(label: label, for view: yellowView)
 
 ##### Main
 
-By default, main table view is set to have `.clear` backhround, have `.none` separator and frame `.zero`.
+By default, the main table view is set to have `.clear` background, have `.none` separator, and frame `.zero`.
 
 `let tableView = viewFactory.table.main()`
 
@@ -517,7 +517,7 @@ override func viewWillAppear(_ animated: Bool) {
 }
 ```
 
-Don't forget to end refreshing and reload table once your refresh action is completed.
+Don't forget to end the refreshing and reload the table once your refresh action is completed.
 
 ```
 self.refreshControl.endRefreshing()
@@ -526,7 +526,7 @@ self.tableView.reloadData()
 
 ### CardFactory
 
-**Important: Card is being created with background color.**
+**Important: Card is being created with the background color.**
 
 ##### Main
 
@@ -560,7 +560,7 @@ let card = viewFactory.card.main(stack: stack)
 
 If you like to add any of your custom view factories, you can do that by extending `ViewFactoryProtocol`.
 
-In this way, your custom factories would be available from your `ViewFactory` implementation as any other factories.
+In this way, your custom factories would be available from your `ViewFactory` implementation as any other factory.
 
 ```
 import ViewFactory
@@ -635,7 +635,7 @@ Directional constraints:
 
 Stack:
 
-Stack will set the same horizontal padding for each child view and "wrap" each child view with the `verticalAt` paddings.
+The stack will set the same horizontal padding for each child's view and "wrap" each child's view with the `verticalAt` paddings.
 
 ```
 try constraintHelper.setStack(for: [child1, child2], to: parent, horizontalAt: .zero, verticalAt: [.four, .twentyFour, .four])
@@ -659,7 +659,7 @@ Above will output with the constraints:
 
 **- there are no child views**
 
-**- number of `verticalAt` paddings is not larger than 1 by child views count, e.g. for 2 children, there need to be 3 vertical constraints, for 3 children, 4 constraints etc.**
+**- number of `verticalAt` paddings is not larger than 1 by child views count, e.g. for 2 children, there need to be 3 vertical constraints, for 3 children, 4 constraints, etc.**
 
 Size:
 
@@ -687,7 +687,7 @@ try gradientHelper.diagonal(for: view, colorTop: .red, colorBottom: .blue)
     <img src="./Tests/ViewFactorySnapshotTests/Helpers/Gradient/__Snapshots__/TestDiagonal/testDiagonal_WhenGradientLayerWithDefaultNameNotExist_ShouldAddGradientLayerToView.1.png" width="375">
 </p>
 
-**Important: This will throw an error if given gradient layer already exists.**
+**Important: This will throw an error if a given gradient layer already exists.**
 
 Custom (default):
 
@@ -759,9 +759,9 @@ try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.
 let navigationBarHelper = viewFactory.styleHelper.navigationBar
 ```
 
-Use for styling navigation bar.
+Use for the styling navigation bar.
 
-By default it's set to be transparent.
+By default, it's set to be transparent.
 
 **Important: `UIViewController` must be presented with `UINavigationController` in order to see `UINavigationBar`.**
 
@@ -810,7 +810,7 @@ let tabBarHelper = viewFactory.styleHelper.tabBar
 
 Use for styling tab bar.
 
-By default it's set to have background.
+By default, it's set to have a background.
 
 **Important: `UIViewController` must be presented with `UITabBarController` in order to see `UINavigationBar`.**
 
@@ -854,7 +854,7 @@ let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomV
 
 ### Padding
 
-Padding is predefine dimention recommended to use in iOS apps for any padding around the views.
+Padding is predefine dimension recommended to use in iOS apps for any padding around the views.
 
 ```
 public enum Padding {
@@ -890,7 +890,7 @@ let customPadding: CGFloat = Padding.custom(72.0).value
 
 ### Elevation
 
-Elevation is predefine dimention recommended to use for elevating any views as per [material.io](https://material.io/design/environment/elevation.html#default-elevations).
+The elevation is predefined dimension recommended to use for elevating any views as per [material.io](https://material.io/design/environment/elevation.html#default-elevations).
 
 ```
 public enum Elevation {
@@ -930,11 +930,103 @@ public enum Elevation {
 
 ### BaseCell
 
-`TODO`
+`BaseCell` is a helper `UITableViewCell` to make table view implementation easier. 
+
+The example below shows how to use it with the MVVM pattern.
+
+Create your ViewModel for a single cell
+
+```
+public protocol YourCellViewModelProtocol {}
+
+class YourCellViewModel: YourCellViewModelProtocol {}
+```
+
+Create a main view class extending `BaseCellMainView`. This will be your main view of the cell (in the example below, that's a Card).
+
+```
+import ViewFactory
+
+public class YourCard: BaseCellMainView {
+    public func setStyle() {
+        // Style additional views of your card (if needed)
+    }
+}
+```
+
+Create cell class extending `BaseCell`
+
+```
+import ViewFactory
+
+class YourCustomCell: BaseCell {
+    func setData(from yourCellViewModel: YourCellViewModelProtocol) {
+        guard let yourCard = mainView as? YourCard else {
+            return
+        }
+        
+        // Map data from ViewModel to Views
+    }
+}
+```
+
+In your YourViewController
+
+```
+private(set) var tableView: UITableView
+private(set) var yourCellViewModels: [YourCellViewModelProtocol] = []
+```
+
+In your `init()`
+
+```
+tableView = viewFactory.table.main()
+tableView.register(YourCustomCell.self, forCellReuseIdentifier: YourCustomCell.identifier)
+```
+
+In your `viewDidLoad()`
+
+```
+tableView.dataSource = self
+```
+
+In your `viewWillAppear()`
+
+```
+view.addSubview(tableView)
+viewFactory.styleHelper.constraint.setAll(for: tableView, to: view.safeAreaLayoutGuide, at: .zero)
+yourCellViewModels = [] // Add your objects e.g. ViewModels
+tableView.reloadData()
+```
+
+Implement `UITableViewDataSource` (to map ViewModels to your Cells)
+
+```
+extension YourViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        yourCellViewModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: YourCustomCell = tableView.dequeueReusableCell(withIdentifier: YourCustomCell.identifier, for: indexPath) as! YourCustomCell
+        let index: Int = indexPath.row
+        let yourCellViewModel: YourCellViewModelProtocol = yourCellViewModels[index]
+        
+        let mainView = YourCard() // Must extend BaseCellMainView
+        cell.initCell(with: mainView, constraintHelper: constraintHelper)
+        cell.setData(from: yourCellViewModel)
+
+        return cell
+    }
+}
+```
+
+**Note: `.initCell()` of `BaseCell` removes all subviews (so the cell are reused properly), sets subviews, layout (constraints between `BaseCell` and `mainView: BaseCellMainView`) and style `BaseCell` to be transparent and with selection style set to `.none`.**
 
 ### VerticalScrollView
 
-VerticalScrollView is a helper view to make implementation of `UIScrollView` simpler. 
+VerticalScrollView is a helper view to make the implementation of `UIScrollView` simpler. 
 
 You can initialize it from the `ScrollFactory`
 
@@ -946,7 +1038,7 @@ init(viewFactory: ViewFactoryProtocol) {
 }
 ```
 
-VerticalScrollView contains only one subview `scrollPage` which fills entire VerticalScrollView and expand vertically with the content. By default `scrollPage` is **not** added to VerticalScrollView - this is to be able to easly remove/add all subviews based on the UI state (e.g. if ViewController is recreated from `viewWillTransition`).
+VerticalScrollView contains only one subview `scrollPage` which fills the entire VerticalScrollView and expands vertically with the content. By default `scrollPage` is **not** added to VerticalScrollView - this is to be able to easily remove/add all subviews based on the UI state (e.g. if ViewController is recreated from `viewWillTransition`).
 
 In your `viewWillAppear` or `viewWillTransition` call:
 
@@ -965,19 +1057,19 @@ override func viewWillAppear(_ animated: Bool) {
 		thirdView
 	]
     
-	// Will throw error when count of verticalPaddings won't be higher by one of the subviews count.
+	// Will throw error when a count of verticalPaddings won't be higher by one of the subviews count.
 	try! scrollView.initSubviews(subviewsInOrder, in: view, horizontalPadding: horizontalPadding, verticalPaddings: verticalPaddings)  
 }
 ```
 
 ## Testing
 
-Module is run with GitHub Actions everytime the new commit is pushed to the remote branch `master`. The testing includes:
+The module is run with GitHub Actions every time the new commit is pushed to the remote branch `master`. The testing includes:
 
 - building the project
 - running unit and snapshot tests
 
-You can also do that locally by running below commands in terminal:
+You can also do that locally by running the below commands in the terminal:
 
 Build:
 
@@ -995,9 +1087,9 @@ Note: The commands above are running with iPhone 11 but you can use any iOS devi
 
 ### Mocks
 
-ViewFactory module provides set of simple mocks to help you test your app. 
+ViewFactory module provides a set of simple mocks to help you test your app. 
 
-The mock classes are located in `Mocks` directory and include:
+The mock classes are located in the `Mocks` directory and include:
 
 Mock Factories:
 
