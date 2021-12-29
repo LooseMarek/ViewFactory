@@ -37,7 +37,9 @@ let package = Package(
                 .process("Factories/Button/__Snapshots__/"),
                 .process("Factories/Input/__Snapshots__/"),
                 .process("Factories/Label/__Snapshots__/"),
-                .process("Factories/Stack/__Snapshots__/")
+                .process("Factories/Stack/__Snapshots__/"),
+                .process("Helpers/Gradient/__Snapshots__/"),
+                .process("Helpers/NavigationBar/__Snapshots__/")
             ])
     ]
 )

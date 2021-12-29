@@ -648,6 +648,10 @@ Center:
 
 ### GradientHelper
 
+```
+let gradientHelper = viewFactory.styleHelper.gradient
+```
+
 Diagonal:
 
 ```
@@ -726,7 +730,42 @@ try gradientHelper.custom(for: view, colors: [UIColor.red.cgColor, UIColor.blue.
 
 ### NavigationBarHelper
 
-`TODO`
+```
+let navigationBarHelper = viewFactory.styleHelper.navigationBar
+```
+
+Use for styling navigation bar.
+
+**Important: `UIViewController` must be presented with `UINavigationController` in order to see `UINavigationBar`.**
+
+```
+let viewController = UIViewController()
+let navigationController = UINavigationController()
+navigationController.viewControllers = [viewController]
+let window = UIWindow(windowScene: scene)
+window.rootViewController = navigationController
+```
+
+In your `viewWillAppear()`
+
+```
+if let navigationBar = navigationController?.navigationBar {
+    navigationBarHelper.style(navigationBar)
+}
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/NavigationBar/__Snapshots__/TestNavigationBarStyle/testStyle_WhenSetOnIphoneSe_ShouldStyleNavigationBar.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .onNavigationBar is set to .darkGray
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/NavigationBar/__Snapshots__/TestNavigationBarStyle/testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+</p>
 
 ### TabBarHelper
 
