@@ -736,6 +736,8 @@ let navigationBarHelper = viewFactory.styleHelper.navigationBar
 
 Use for styling navigation bar.
 
+By default it's set to be transparent.
+
 **Important: `UIViewController` must be presented with `UINavigationController` in order to see `UINavigationBar`.**
 
 ```
@@ -744,6 +746,14 @@ let navigationController = UINavigationController()
 navigationController.viewControllers = [viewController]
 let window = UIWindow(windowScene: scene)
 window.rootViewController = navigationController
+```
+
+in your `viewDidLoad()`
+
+```
+navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelClicked)) // Or any custom you like
+navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked)) // Or any custom you like
+title = "Navbar Title"
 ```
 
 In your `viewWillAppear()`
@@ -764,12 +774,56 @@ let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomV
 ```
 
 <p>
-    <img src="./Tests/ViewFactorySnapshotTests/Helpers/NavigationBar/__Snapshots__/TestNavigationBarStyle/testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor.1.png" width="375">
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/NavigationBar/__Snapshots__/TestNavigationBarStyle/testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultNavigationBarColor.1.png" width="375">
 </p>
 
 ### TabBarHelper
 
-`TODO`
+```
+let tabBarHelper = viewFactory.styleHelper.tabBar
+```
+
+Use for styling tab bar.
+
+By default it's set to have background.
+
+**Important: `UIViewController` must be presented with `UITabBarController` in order to see `UINavigationBar`.**
+
+```
+let viewController = UIViewController()
+let tabBarController = UITabBarController()
+tabBarController.viewControllers = [viewController]
+let window = UIWindow(windowScene: scene)
+window.rootViewController = tabBarController
+```
+
+in your `viewDidLoad()` of `UIViewController `
+
+```
+let tabBarItem = UITabBarItem()
+tabBarItem.title = "Left"
+tabBarItem.image = UIImage(systemName: "bitcoinsign.circle")
+viewController.tabBarItem = tabBarItem
+```
+
+In your `viewWillAppear()` of `UITabBarController`
+
+```
+tabBarHelper.style(tabBar)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/TabBar/__Snapshots__/TestTabBarStyle/testStyle_WhenSetOnIphoneSe_ShouldStyleTabBar.1.png" width="375">
+</p>
+
+```
+let yourCustomViewFactoryColor: ViewFactoryColorProtocol = YourCustomViewFactoryColor() // Where .tabBar is set to .darkGray, .onTabBar is set to .gray and .onTabBarActive is set to .white
+let viewFactory: ViewFactoryProtocol = ViewFactory(viewFactoryColor: yourCustomViewFactoryColor)
+```
+
+<p>
+    <img src="./Tests/ViewFactorySnapshotTests/Helpers/TabBar/__Snapshots__/TestTabBarStyle/testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultTabBarColors.1.png" width="375">
+</p>
 
 ## Enums
 

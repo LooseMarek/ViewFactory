@@ -18,7 +18,7 @@ extension Helper_NavigationBar_Test {
         
         let viewController = UIViewController()
         viewController.view.frame = CGRect(x: 0.0, y: 0.0, width: viewImageConfig.size!.width, height: viewImageConfig.size!.height)
-        viewController.view.backgroundColor = .card
+        viewController.view.backgroundColor = .systemBlue
         
         let navigationBar = UINavigationBar(frame: CGRect(x: 0.0, y: 0.0, width: viewImageConfig.size!.width, height: 44))
         let navItem = UINavigationItem(title: "Navbar Title")
@@ -35,14 +35,14 @@ extension Helper_NavigationBar_Test {
         assertSnapshot(matching: viewController, as: .image)
     }
     
-    func testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultLabelColor() {
+    func testStyle_WhenColorChangeThroughViewFactoryColor_ShouldChangeDefaultNavigationBarColor() {
         // Given
         navigationBarHelper = NavigationBarHelper(viewFactoryColor: MockViewFactoryColor())
         let viewImageConfig: ViewImageConfig = .iPhoneSe
         
         let viewController = UIViewController()
         viewController.view.frame = CGRect(x: 0.0, y: 0.0, width: viewImageConfig.size!.width, height: viewImageConfig.size!.height)
-        viewController.view.backgroundColor = .card
+        viewController.view.backgroundColor = .systemBlue
         
         let navigationBar = UINavigationBar(frame: CGRect(x: 0.0, y: 0.0, width: viewImageConfig.size!.width, height: 44))
         let navItem = UINavigationItem(title: "Navbar Title")
