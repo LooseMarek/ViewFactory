@@ -10,19 +10,13 @@ import UIKit
 
 public class MockVerticalScrollView: VerticalScrollView {
     
-    public var initSubviewsCallCount: Int = 0
+    public var initSubviewsCallCount = 0
     
     public var mockScrollPageFrame: CGRect?
     
-    public init(constraintHelper: ConstraintHelperProtocol) {
-        super.init(constraintHelper: constraintHelper)
-    }
+    public init(constraintHelper: ConstraintHelperProtocol) { super.init(constraintHelper: constraintHelper) }
     
-    required init?(coder: NSCoder) {
-        return nil
-    }
+    required init?(coder: NSCoder) { nil }
     
-    public override func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) {
-        initSubviewsCallCount += 1
-    }
+    public override func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) { initSubviewsCallCount += 1 }
 }

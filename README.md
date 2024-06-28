@@ -949,7 +949,7 @@ Create a main view class extending `BaseCellMainView`. This will be your main vi
 ```
 import ViewFactory
 
-public class YourCard: BaseCellMainView {
+public final class YourCard: BaseCellMainView {
     public func setStyle() {
         // Style additional views of your card (if needed)
     }

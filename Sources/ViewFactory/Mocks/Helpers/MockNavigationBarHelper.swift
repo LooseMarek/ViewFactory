@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class MockNavigationBarHelper: NavigationBarHelperProtocol {
+public final class MockNavigationBarHelper: NavigationBarHelperProtocol {
     public var viewFactoryColor: ViewFactoryColorProtocol = DefaultViewFactoryColor()
     
-    public var styleCallsCount: Int = 0
+    public var styleCallsCount = 0
     
     public var mockNavigationBar: UINavigationBar?
     
@@ -19,7 +19,6 @@ public class MockNavigationBarHelper: NavigationBarHelperProtocol {
     
     public func style(_ navigationBar: UINavigationBar) {
         styleCallsCount += 1
-        
         mockNavigationBar = navigationBar
     }
 }

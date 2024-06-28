@@ -8,64 +8,28 @@
 import UIKit
 
 class MockViewFactoryColor: ViewFactoryColorProtocol {
-    var onNavigationBar: UIColor {
-        return .darkGray
-    }
+    var onNavigationBar: UIColor { .darkGray }
     
-    var tabBar: UIColor {
-        return .darkGray
-    }
-    var onTabBar: UIColor {
-        return .gray
-    }
-    var onTabBarActive: UIColor {
-        return .white
-    }
+    var tabBar: UIColor { .darkGray }
+    var onTabBar: UIColor { .gray }
+    var onTabBarActive: UIColor { .white }
     
-    var labelHeader: UIColor {
-        return .black
-    }
-    var labelInput: UIColor {
-        return .brown
-    }
-    var labelBody: UIColor {
-        return .blue
-    }
-    var labelHint: UIColor {
-        return .orange
-    }
+    var labelHeader: UIColor { .black }
+    var labelInput: UIColor { .brown }
+    var labelBody: UIColor { .blue }
+    var labelHint: UIColor { .orange }
     
-    var input: UIColor {
-        return .green
-    }
-    var onInput: UIColor {
-        return .black
-    }
-    var inputPlaceholder: UIColor {
-        return .gray
-    }
+    var input: UIColor { .green }
+    var onInput: UIColor { .black }
+    var inputPlaceholder: UIColor { .gray }
     
-    var buttonNegative: UIColor {
-        return .red
-    }
-    var onButtonNegative: UIColor {
-        return .white
-    }
-    var buttonFabGradientFirst: UIColor {
-        return .yellow
-    }
-    var buttonFabGradientLast: UIColor {
-        return .orange
-    }
-    var onButtonFab: UIColor {
-        return .white
-    }
+    var buttonNegative: UIColor { .red }
+    var onButtonNegative: UIColor { .white }
+    var buttonFabGradientFirst: UIColor { .yellow }
+    var buttonFabGradientLast: UIColor { .orange }
+    var onButtonFab: UIColor { .white }
     
-    var card: UIColor {
-        return .lightGray
-    }
+    var card: UIColor { .lightGray }
     
-    var tableRefresh: UIColor {
-        return .green
-    }
+    var tableRefresh: UIColor { .green }
 }

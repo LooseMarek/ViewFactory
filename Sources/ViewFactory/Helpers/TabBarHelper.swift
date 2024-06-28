@@ -15,7 +15,7 @@ public protocol TabBarHelperProtocol {
     func style(_ tabBar: UITabBar)
 }
 
-public class TabBarHelper: TabBarHelperProtocol {
+public final class TabBarHelper: TabBarHelperProtocol {
     
     public var viewFactoryColor: ViewFactoryColorProtocol
     

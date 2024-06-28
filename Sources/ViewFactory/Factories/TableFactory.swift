@@ -20,7 +20,7 @@ public extension TableFactoryProtocol {
     }
 }
 
-public class TableFactory: TableFactoryProtocol {
+public final class TableFactory: TableFactoryProtocol {
     
     public var constraintHelper: ConstraintHelperProtocol
     
@@ -33,14 +33,12 @@ public class TableFactory: TableFactoryProtocol {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .clear
         table.separatorStyle = .none
-
         return table
     }
     
     public func refresh() -> UIRefreshControl {
         let refresh = UIRefreshControl()
         refresh.tintColor = .tableRefresh
-        
         return refresh
     }
 }

@@ -13,7 +13,7 @@ public protocol StyleHelperProtocol {
     var tabBar: TabBarHelperProtocol { get }
 }
 
-public class StyleHelper: StyleHelperProtocol {
+public final class StyleHelper: StyleHelperProtocol {
     public var constraint: ConstraintHelperProtocol
     public var gradient: GradientHelperProtocol
     public var navigationBar: NavigationBarHelperProtocol

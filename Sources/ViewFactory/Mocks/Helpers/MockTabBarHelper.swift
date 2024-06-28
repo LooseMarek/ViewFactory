@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class MockTabBarHelper: TabBarHelperProtocol {
+public final class MockTabBarHelper: TabBarHelperProtocol {
     
     public var viewFactoryColor: ViewFactoryColorProtocol = DefaultViewFactoryColor()
     
-    public var styleCallsCount: Int = 0
+    public var styleCallsCount = 0
     
     public var mockTabBar: UITabBar?
     
@@ -20,7 +20,6 @@ public class MockTabBarHelper: TabBarHelperProtocol {
     
     public func style(_ tabBar: UITabBar) {
         styleCallsCount += 1
-        
         mockTabBar = tabBar
     }
 }

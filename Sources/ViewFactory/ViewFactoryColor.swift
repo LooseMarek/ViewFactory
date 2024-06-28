@@ -35,68 +35,32 @@ public protocol ViewFactoryColorProtocol {
     var tableRefresh: UIColor { get }
 }
 
-public class DefaultViewFactoryColor: ViewFactoryColorProtocol {
+public final class DefaultViewFactoryColor: ViewFactoryColorProtocol {
     
     public init() {}
     
-    public var onNavigationBar: UIColor {
-        return .onNavigationBar
-    }
+    public var onNavigationBar: UIColor { .onNavigationBar }
     
-    public var tabBar: UIColor {
-        return .tabBar
-    }
-    public var onTabBar: UIColor {
-        return .onTabBar
-    }
-    public var onTabBarActive: UIColor {
-        return .onTabBarActive
-    }
+    public var tabBar: UIColor { .tabBar }
+    public var onTabBar: UIColor { .onTabBar }
+    public var onTabBarActive: UIColor { .onTabBarActive }
     
-    public var labelHeader: UIColor {
-        return .labelHeader
-    }
-    public var labelInput: UIColor {
-        return .labelInput
-    }
-    public var labelBody: UIColor {
-        return .labelBody
-    }
-    public var labelHint: UIColor {
-        return .labelHint
-    }
+    public var labelHeader: UIColor { .labelHeader }
+    public var labelInput: UIColor { .labelInput }
+    public var labelBody: UIColor { .labelBody }
+    public var labelHint: UIColor { .labelHint }
     
-    public var input: UIColor {
-        return .input
-    }
-    public var onInput: UIColor {
-        return .onInput
-    }
-    public var inputPlaceholder: UIColor {
-        return .inputPlaceholder
-    }
+    public var input: UIColor { .input }
+    public var onInput: UIColor { .onInput }
+    public var inputPlaceholder: UIColor { .inputPlaceholder }
     
-    public var buttonNegative: UIColor {
-        return .buttonNegative
-    }
-    public var onButtonNegative: UIColor {
-        return .onButtonNegative
-    }
-    public var buttonFabGradientFirst: UIColor {
-        return .buttonFabGradientFirst
-    }
-    public var buttonFabGradientLast: UIColor {
-        return .buttonFabGradientLast
-    }
-    public var onButtonFab: UIColor {
-        return .onButtonFab
-    }
+    public var buttonNegative: UIColor { .buttonNegative }
+    public var onButtonNegative: UIColor { .onButtonNegative }
+    public var buttonFabGradientFirst: UIColor { .buttonFabGradientFirst }
+    public var buttonFabGradientLast: UIColor { .buttonFabGradientLast }
+    public var onButtonFab: UIColor { .onButtonFab }
     
-    public var card: UIColor {
-        return .card
-    }
+    public var card: UIColor { .card }
     
-    public var tableRefresh: UIColor {
-        return .tableRefresh
-    }
+    public var tableRefresh: UIColor { .tableRefresh }
 }

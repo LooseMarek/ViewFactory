@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class MockScrollFactory: ScrollFactoryProtocol {
+public final class MockScrollFactory: ScrollFactoryProtocol {
     public var constraintHelper: ConstraintHelperProtocol = MockConstraintHelper()
     
-    public var mainCallsCount: Int = 0
+    public var mainCallsCount = 0
     
     public init() {}
         

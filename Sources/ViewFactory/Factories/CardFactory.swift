@@ -25,7 +25,7 @@ public extension CardFactoryProtocol {
     }
 }
 
-public class CardFactory: CardFactoryProtocol {
+public final class CardFactory: CardFactoryProtocol {
     
     public let constraintHelper: ConstraintHelperProtocol
     public let label: LabelFactoryProtocol
@@ -44,11 +44,10 @@ public class CardFactory: CardFactoryProtocol {
     }
     
     public func main(card: UIView = UIView(), stack: UIStackView) -> UIView {
-        let elevation = Elevation.fourDp.value
+        let elevation = Elevation.fourDp.rawValue
         
         card.frame = CGRect(x: 0, y: 0, width: 300, height: 100)
         card.backgroundColor = viewFactoryColor.card
-        
         card.layer.zPosition = elevation
         card.layer.masksToBounds = false
         card.layer.shadowColor = UIColor.black.cgColor
@@ -58,7 +57,6 @@ public class CardFactory: CardFactoryProtocol {
         card.layer.cornerRadius = 8.0
         //card.clipsToBounds = true
         card.translatesAutoresizingMaskIntoConstraints = false
-        
         card.addSubview(stack)
         
         constraintHelper.setVertical(for: stack, to: card, at: .twentyFour)

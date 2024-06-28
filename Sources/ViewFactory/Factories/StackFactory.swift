@@ -17,7 +17,7 @@ public protocol StackFactoryProtocol {
     func labeledView(label: UILabel, for view: UIView) -> UIStackView
 }
 
-public class StackFactory: StackFactoryProtocol {
+public final class StackFactory: StackFactoryProtocol {
     
     public var constraintHelper: ConstraintHelperProtocol
     
@@ -27,20 +27,17 @@ public class StackFactory: StackFactoryProtocol {
     
     public func vertical(views: [UIView]) -> UIStackView {
         let stack = common(views: views)
-        stack.spacing = Padding.sixteen.value
-        
+        stack.spacing = Padding.sixteen.rawValue
         constraintHelper.setHorizontal(for: views, to: stack, at: .zero)
-
         return stack
     }
     
     public func horizontal(views: [UIView]) -> UIStackView {
         let stack = common(views: views)
-        stack.spacing = Padding.sixteen.value
+        stack.spacing = Padding.sixteen.rawValue
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         constraintHelper.setVertical(for: views, to: stack, at: .zero)
-
         return stack
     }
     
@@ -48,14 +45,14 @@ public class StackFactory: StackFactoryProtocol {
         let leftColumnStack = common(views: leftColumnViews)
         leftColumnStack.distribution = .equalCentering
         leftColumnStack.alignment = .center
-        leftColumnStack.spacing = Padding.twentyFour.value
+        leftColumnStack.spacing = Padding.twentyFour.rawValue
         
         constraintHelper.setHorizontal(for: leftColumnViews, to: leftColumnStack, at: .zero)
         
         let rightColumnStack = common(views: rightColumnViews)
         rightColumnStack.distribution = .equalCentering
         rightColumnStack.alignment = .center
-        rightColumnStack.spacing = Padding.twentyFour.value
+        rightColumnStack.spacing = Padding.twentyFour.rawValue
         
         constraintHelper.setHorizontal(for: rightColumnViews, to: rightColumnStack, at: .zero)
         
@@ -68,7 +65,7 @@ public class StackFactory: StackFactoryProtocol {
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.alignment = .center
-        stack.spacing = Padding.twentyFour.value
+        stack.spacing = Padding.twentyFour.rawValue
         
         constraintHelper.setVertical(for: columns, to: stack, at: .zero)
         
@@ -78,10 +75,8 @@ public class StackFactory: StackFactoryProtocol {
     public func labeledView(label: UILabel, for view: UIView) -> UIStackView {
         let views = [ label, view ]
         let stack = common(views: views)
-        stack.spacing = Padding.four.value
-        
+        stack.spacing = Padding.four.rawValue
         constraintHelper.setHorizontal(for: views, to: stack, at: .zero)
-        
         return stack
     }
     
@@ -91,7 +86,6 @@ public class StackFactory: StackFactoryProtocol {
         stack.distribution = .fill
         stack.alignment = .leading
         stack.translatesAutoresizingMaskIntoConstraints = false
-
         return stack
     }
 }

@@ -15,7 +15,7 @@ public protocol NavigationBarHelperProtocol {
      func style(_ navigationBar: UINavigationBar)
 }
 
-public class NavigationBarHelper: NavigationBarHelperProtocol {
+public final class NavigationBarHelper: NavigationBarHelperProtocol {
     
     public var viewFactoryColor: ViewFactoryColorProtocol
     

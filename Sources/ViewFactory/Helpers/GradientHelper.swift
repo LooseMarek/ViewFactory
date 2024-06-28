@@ -30,26 +30,16 @@ public enum GradientErrorEnum: Error {
     case layerAlreadyExist
 }
 
-public class GradientHelper: GradientHelperProtocol {
+public final class GradientHelper: GradientHelperProtocol {
     
     public init() {}
     
     public func get(_ layerName: String, from view: UIView) -> CAGradientLayer? {
-        if let sublayers = view.layer.sublayers {
-            return sublayers.filter({ $0.name == layerName }).first as? CAGradientLayer
-        }
-        
-        return nil
+        view.layer.sublayers?.filter({ $0.name == layerName }).first as? CAGradientLayer
     }
     
     public func removeAllGradientSublayers(from view: UIView) {
-        if let sublayers = view.layer.sublayers {
-            for layer in sublayers {
-                if layer is CAGradientLayer {
-                     layer.removeFromSuperlayer()
-                }
-            }
-        }
+        _ = view.layer.sublayers?.map { ($0 as? CAGradientLayer)?.removeFromSuperlayer() }
     }
     
     public func diagonal(for view: UIView, colorTop: UIColor, colorBottom: UIColor, layerName: String = "gradientDiagonal") throws {
@@ -58,9 +48,7 @@ public class GradientHelper: GradientHelperProtocol {
         
         let isGradientLayerExist = get(layerName, from: view) != nil
         
-        if (isGradientLayerExist) {
-            throw GradientErrorEnum.layerAlreadyExist
-        }
+        if isGradientLayerExist { throw GradientErrorEnum.layerAlreadyExist }
                     
         let gradientLayer = CAGradientLayer()
         gradientLayer.name = layerName
@@ -77,9 +65,7 @@ public class GradientHelper: GradientHelperProtocol {
         
         let isGradientLayerExist = get(layerName, from: view) != nil
         
-        if (isGradientLayerExist) {
-            throw GradientErrorEnum.layerAlreadyExist
-        }
+        if isGradientLayerExist { throw GradientErrorEnum.layerAlreadyExist }
         
         let gradientLayer = CAGradientLayer(start: start, end: end, colors: colors, type: type)
         gradientLayer.name = layerName

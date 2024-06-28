@@ -8,23 +8,18 @@
 
 import UIKit
 
-public class MockUITextField: UITextField {
+public final class MockUITextField: UITextField {
     
-    public var resignFirstResponderCallCount: Int = 0
+    public var resignFirstResponderCallCount = 0
     
-    public var mockResignFirstResponder: Bool = false
+    public var mockResignFirstResponder = false
     
-    public init() {
-        super.init(frame: .zero)
-    }
+    public init() { super.init(frame: .zero) }
     
-    required init?(coder: NSCoder) {
-        return nil
-    }
+    required init?(coder: NSCoder) { nil }
     
     public override func resignFirstResponder() -> Bool {
         resignFirstResponderCallCount += 1
-        
         return mockResignFirstResponder
     }
 }

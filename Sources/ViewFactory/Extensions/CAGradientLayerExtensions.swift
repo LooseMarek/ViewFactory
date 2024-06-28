@@ -11,15 +11,7 @@ import UIKit
 
 public extension CAGradientLayer {
     enum Point {
-        case topLeft
-        case centerLeft
-        case bottomLeft
-        case topCenter
-        case center
-        case bottomCenter
-        case topRight
-        case centerRight
-        case bottomRight
+        case topLeft, centerLeft, bottomLeft, topCenter, center, bottomCenter, topRight, centerRight, bottomRight
        
         var point: CGPoint {
             switch self {

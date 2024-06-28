@@ -18,7 +18,7 @@ public protocol ViewFactoryProtocol {
     var card: CardFactoryProtocol { get }
 }
 
-public class ViewFactory: ViewFactoryProtocol {
+public final class ViewFactory: ViewFactoryProtocol {
     public var styleHelper: StyleHelperProtocol
     
     public var label: LabelFactoryProtocol

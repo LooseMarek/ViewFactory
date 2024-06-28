@@ -18,24 +18,13 @@ public protocol LabelFactoryProtocol {
 }
 
 public extension LabelFactoryProtocol {
-    func header(alignment: NSTextAlignment = .left) -> UILabel {
-        return header(alignment: alignment)
-    }
-    
-    func body(alignment: NSTextAlignment = .left) -> UILabel {
-        return body(alignment: alignment)
-    }
-    
-    func inputLabel(alignment: NSTextAlignment = .left) -> UILabel {
-        return inputLabel(alignment: alignment)
-    }
-    
-    func hint(alignment: NSTextAlignment = .left) -> UILabel {
-        return hint(alignment: alignment)
-    }
+    func header(alignment: NSTextAlignment = .left) -> UILabel { header(alignment: alignment) }
+    func body(alignment: NSTextAlignment = .left) -> UILabel { body(alignment: alignment) }
+    func inputLabel(alignment: NSTextAlignment = .left) -> UILabel { inputLabel(alignment: alignment) }
+    func hint(alignment: NSTextAlignment = .left) -> UILabel { hint(alignment: alignment) }
 }
 
-public class LabelFactory: LabelFactoryProtocol {
+public final class LabelFactory: LabelFactoryProtocol {
     
     public var viewFactoryColor: ViewFactoryColorProtocol
     
@@ -50,7 +39,6 @@ public class LabelFactory: LabelFactoryProtocol {
         label.textColor = viewFactoryColor.labelHeader
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }
     
@@ -60,7 +48,6 @@ public class LabelFactory: LabelFactoryProtocol {
         label.textAlignment = alignment
         label.textColor = viewFactoryColor.labelBody
         label.numberOfLines = 0
-
         return label
     }
     
@@ -71,7 +58,6 @@ public class LabelFactory: LabelFactoryProtocol {
         label.textColor = viewFactoryColor.labelInput
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }
     
@@ -81,7 +67,6 @@ public class LabelFactory: LabelFactoryProtocol {
         label.textAlignment = alignment
         label.textColor = viewFactoryColor.labelHint
         label.numberOfLines = 0
-
         return label
     }
 }

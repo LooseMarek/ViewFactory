@@ -18,7 +18,7 @@ public protocol ButtonFactoryProtocol {
     func miniFab() -> UIButton
 }
 
-public class ButtonFactory: ButtonFactoryProtocol {
+public final class ButtonFactory: ButtonFactoryProtocol {
     
     public var constraintHelper: ConstraintHelperProtocol
     public var gradientHelper: GradientHelperProtocol
@@ -39,15 +39,13 @@ public class ButtonFactory: ButtonFactoryProtocol {
         button.frame = frame
         _ = constraintHelper.setHeight(for: button, at: 40)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         button.setTitleColor(viewFactoryColor.onButtonNegative, for: .normal)
         button.tintColor = viewFactoryColor.onButtonNegative
         button.layer.cornerRadius = 8.0
-        button.layer.zPosition = Elevation.sixDp.value
+        button.layer.zPosition = Elevation.sixDp.rawValue
         button.layer.borderWidth = 1
         button.layer.borderColor = viewFactoryColor.onButtonNegative.cgColor
         button.backgroundColor = viewFactoryColor.buttonNegative
-
         return button
     }
     
@@ -55,7 +53,6 @@ public class ButtonFactory: ButtonFactoryProtocol {
         let button: UIButton = commonFab(size: 40.0)
         let config = UIImage.SymbolConfiguration(pointSize: 24.0)
         button.setPreferredSymbolConfiguration(config, forImageIn: .normal)
-        
         return button
     }
     
@@ -63,7 +60,6 @@ public class ButtonFactory: ButtonFactoryProtocol {
         let button: UIButton = commonFab(size: 32.0)
         let config = UIImage.SymbolConfiguration(pointSize: 16.0)
         button.setPreferredSymbolConfiguration(config, forImageIn: .normal)
-        
         return button
     }
     
@@ -83,7 +79,7 @@ public class ButtonFactory: ButtonFactoryProtocol {
         
         button.setTitleColor(viewFactoryColor.onButtonFab, for: .normal)
         button.tintColor = viewFactoryColor.onButtonFab
-        button.layer.zPosition = Elevation.sixDp.value
+        button.layer.zPosition = Elevation.sixDp.rawValue
 
         let firstCgColor: CGColor = viewFactoryColor.buttonFabGradientFirst.cgColor
         let lastCgColor: CGColor = viewFactoryColor.buttonFabGradientLast.cgColor

@@ -14,7 +14,7 @@ public protocol ScrollFactoryProtocol {
     func vertical() -> VerticalScrollView
 }
 
-public class ScrollFactory: ScrollFactoryProtocol {
+public final class ScrollFactory: ScrollFactoryProtocol {
     
     public var constraintHelper: ConstraintHelperProtocol
     
@@ -25,7 +25,6 @@ public class ScrollFactory: ScrollFactoryProtocol {
     public func vertical() -> VerticalScrollView {
         let scrollView = VerticalScrollView(constraintHelper: constraintHelper)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
         return scrollView
     }
 }

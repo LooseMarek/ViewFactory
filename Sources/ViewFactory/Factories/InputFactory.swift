@@ -16,7 +16,7 @@ public protocol InputFactoryProtocol {
     func text() -> UITextField
 }
 
-public class InputFactory: InputFactoryProtocol {
+public final class InputFactory: InputFactoryProtocol {
     
     public var constraintHelper: ConstraintHelperProtocol
     public var viewFactoryColor: ViewFactoryColorProtocol
@@ -31,21 +31,17 @@ public class InputFactory: InputFactoryProtocol {
         input.keyboardType = .numberPad
 
         let numberToolbar: UIToolbar = UIToolbar(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 40, height: CGFloat(44))))
-
         numberToolbar.barStyle = .default
         numberToolbar.sizeToFit()
         numberToolbar.isTranslucent = true
 
         input.inputAccessoryView = numberToolbar
-        
         return input
     }
     
     public func text() -> UITextField {
         let input = common()
-        
         input.keyboardType = .default
-        
         return input
     }
     
@@ -59,7 +55,6 @@ public class InputFactory: InputFactoryProtocol {
         input.borderStyle = .roundedRect
         input.adjustsFontSizeToFitWidth = true
         input.attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [.foregroundColor: viewFactoryColor.inputPlaceholder])
-        
         return input
     }
 }

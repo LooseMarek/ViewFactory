@@ -25,9 +25,7 @@ public class VerticalScrollView: UIScrollView {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
-        return nil
-    }
+    required init?(coder: NSCoder) { nil }
     
     public func initSubviews(_ subviews: [UIView], in parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) throws {
         removeSubviews()
@@ -36,22 +34,14 @@ public class VerticalScrollView: UIScrollView {
     }
     
     func removeSubviews() {
-        for scrollPageSubview in scrollPage.subviews {
-            scrollPageSubview.removeFromSuperview()
-        }
-        
-        for subview in subviews {
-            subview.removeFromSuperview()
-        }
+        _ = scrollPage.subviews.map { $0.removeFromSuperview() }
+        _ = subviews.map { $0.removeFromSuperview() }
     }
     
     func setSubviews(_ subviews: [UIView], in parent: UIView) {
         parent.addSubview(self)
         addSubview(scrollPage)
-        
-        for subview in subviews {
-            scrollPage.addSubview(subview)
-        }
+        _ = subviews.map { scrollPage.addSubview($0) }
     }
     
     func setLayout(subviews: [UIView], parent: UIView, horizontalPadding: Padding, verticalPaddings: [Padding]) throws {

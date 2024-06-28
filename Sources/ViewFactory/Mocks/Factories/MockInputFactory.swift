@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class MockInputFactory: InputFactoryProtocol {
+public final class MockInputFactory: InputFactoryProtocol {
     public var constraintHelper: ConstraintHelperProtocol = MockConstraintHelper()
     public var viewFactoryColor: ViewFactoryColorProtocol = DefaultViewFactoryColor()
     
-    public var numberCallsCount: Int = 0
-    public var textCallsCount: Int = 0
+    public var numberCallsCount = 0
+    public var textCallsCount = 0
     
     public init() {}
         
